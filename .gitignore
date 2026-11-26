@@ -1,0 +1,11 @@
+node_modules
+.netlify
+.claude
+dev-local.sh
+.env
+.env.*
+*.secret
+.premio-secret
+PIN-STAFF*
+*.csv
+.DS_Store
