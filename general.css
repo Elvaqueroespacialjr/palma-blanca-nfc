@@ -56,3 +56,6 @@ body.pb-navon #jg .qt-top{padding-top:calc(var(--pbnav) + 4px)}
 body.pb-navon .qz{padding-top:calc(var(--pbnav) + 6px)}
 body.pb-navon .sheet{max-height:min(90dvh,calc(100dvh - var(--pbnav) - 8px))}
 body.pb-navon .pb-modal{padding-top:calc(var(--pbnav) + 10px)}
+/* Modo Antro: el logo ya va en la barra superior, no se repite en su cabecera */
+body.pb-navon #tm .top>img{display:none}
+body.pb-navon #tm .top{justify-content:flex-end}

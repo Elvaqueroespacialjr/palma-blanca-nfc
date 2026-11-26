@@ -29,7 +29,7 @@ window.PRIVACIDAD = {
       p: [
         "Fotos del muro: solo las fotos que tú decides subir en el Modo Antro, con su marco, fecha y hora. Se publican en el muro del evento y se borran solas 24 horas después. Puedes borrar las tuyas antes.",
         "Nombre o apodo del certificado de bartender: se guarda solo en tu cel y solo aparece en la imagen que tú decides compartir.",
-        "Datos anónimos de uso: qué secciones abres, giros, juegos, certificados y premios canjeados, con un identificador al azar de tu navegador. No pedimos tu teléfono, correo ni ubicación.",
+        "Datos anónimos de uso: qué secciones abres, giros, juegos, certificados y premios canjeados, con un identificador al azar de tu navegador. No pedimos tu teléfono, correo ni ubicación. Se borran solos a los 90 días.",
         "Datos que se quedan en tu cel: nombres de jugadores, favoritos, tu drink del día, recetas preparadas, logros y premios. No salen de tu cel, salvo el código de un premio cuando el staff lo verifica.",
         "Cámara: solo se usa cuando tú la abres para tomar una foto. No grabamos audio ni video.",
         "No pedimos datos sensibles (salud, religión, origen, etc.)."
