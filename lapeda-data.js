@@ -1,0 +1,147 @@
+/* =====================================================================
+   LA PEDA · Palma Blanca  —  Cartas de los modos Pre, Peda y After
+   ---------------------------------------------------------------------
+   Para agregar una carta, copia una línea, cámbiale el texto y deja la
+   coma al final. No se repite ninguna carta hasta que salgan todas.
+
+   - {j}  = el jugador (o equipo) al que le toca.
+   - {j2} = otro jugador (o equipo) al azar.
+   - Si escribes "toma 1", "toman 2", etc., el resumen lo cuenta como
+     tragos. Con "Hoy no tomamos alcohol" se vuelven tragos de agua.
+   - Si tu texto lleva comillas, usa ‘ ’ o « » en lugar de "".
+   ===================================================================== */
+
+window.LAPEDA_DATA = {
+
+  /* ---------- PRE: calentamiento ---------- */
+  pre: [
+    "El que tenga el cumpleaños más cercano toma 1.",
+    "{j}, elige a alguien para que tome contigo.",
+    "Todos los que traen tenis toman 1.",
+    "{j} y {j2}: piedra, papel o tijera. El que pierde toma 1.",
+    "El último en tocar el piso toma 1.",
+    "{j} dice una categoría. El que no responda en 5 segundos, toma.",
+    "Todos los que vinieron en coche toman 1. Y hoy no manejan.",
+    "{j}, cuenta algo random de ti o toma 1.",
+    "El más alto de la mesa reparte 2 tragos.",
+    "{j} arranca un «Yo nunca». Quien sí lo haya hecho, toma 1.",
+    "El que revisó su cel en los últimos 5 minutos toma 1.",
+    "Brindis grupal con Palma Blanca: ¡por esta noche!",
+    "{j} imita a {j2}. Si nadie adivina quién es, {j} toma.",
+    "El que tenga menos batería en el cel toma 1.",
+    "Todos los zurdos toman 1.",
+    "{j}, di un trabalenguas sin equivocarte o toma 1.",
+    "El de la ropa más clara reparte 2 tragos.",
+    "{j} dice 3 cosas que tiene en común con {j2}. Si no puede, los dos toman.",
+    "El que haya llegado al último toma 1.",
+    "{j} cuenta cómo conoció a {j2}. Si {j2} lo corrige, {j} toma.",
+    "Todos los que tengan hermanos mayores toman 1.",
+    "{j} elige una canción. El primero que adivine el artista reparte 1.",
+    "El que tenga la foto de perfil más vieja toma 1.",
+    "{j}, haz tu mejor paso de baile o toma 1.",
+    "Los que nacieron en la misma estación del año que {j} brindan juntos.",
+    "{j} dice el nombre de todos en la mesa en 10 segundos. Si falla, toma 1.",
+    "El último que haya viajado en avión reparte 1.",
+    "{j} y {j2} intercambian lugar hasta la siguiente ronda.",
+    "Todos los que traigan algo negro toman 1.",
+    "{j}, adivina el signo zodiacal de {j2}. Si fallas, tomas 1.",
+    "El que tenga más apps abiertas en el cel toma 1.",
+    "{j} inventa un brindis de 10 segundos. Todos brindan con Palma Blanca.",
+    "Los que prefieren playa sobre ciudad toman 1.",
+    "{j} dice su peor canción favorita. Quien la conozca, toma 1.",
+    "El que haya dormido menos anoche reparte 1.",
+    "{j} habla con acento de otro país hasta su próximo turno.",
+    "Todos los que tengan mascota toman 1.",
+    "{j} y {j2}: el primero que diga 5 marcas de carros gana. El otro toma 1.",
+    "El que más se haya reído hasta ahora toma 1.",
+    "{j} elige a quién de la mesa llevaría a una isla desierta y explica por qué."
+  ],
+
+  /* ---------- PEDA: ya empezó la fiesta ---------- */
+  peda: [
+    "Shot grupal de Palma Blanca. ¡Salud! 🥃",
+    "{j} se echa un shot.",
+    "{j} y {j2} se echan un shot juntos.",
+    "El que perdió el último juego toma 2.",
+    "Cascada: empieza {j}. Nadie para hasta que el de antes pare.",
+    "{j} elige: shot o reto que le ponga la mesa.",
+    "Todos toman 1. Sin preguntas.",
+    "{j} reparte 2 tragos como quiera.",
+    "El que traiga algo rojo se salva. Los demás toman 1.",
+    "{j} dice el abecedario al revés o toma 1.",
+    "{j}, termínate tu bebida. Si es grande, con la mitad basta.",
+    "{j} gira y señala a alguien. Esa persona toma 1.",
+    "Aguanten la risa 10 segundos. El primero que se ría toma.",
+    "{j} y {j2} intercambian bebidas por una ronda.",
+    "{j} lanza una moneda. Cara toma 1, cruz reparte 1.",
+    "Los últimos 2 en levantar la mano toman 1.",
+    "{j} inventa una regla para la mesa. El que la rompa, toma.",
+    "Categorías: {j} empieza con «tipos de tequila». El que se trabe, toma.",
+    "{j} canta el coro de una canción. Si la mesa no la reconoce, toma 1.",
+    "Todos los que tengan algo de mezclilla toman 1.",
+    "{j} y {j2}: duelo de miradas. El primero que parpadee, toma.",
+    "El que tenga la bebida más llena toma 1.",
+    "{j} es el rey de los pulgares: cuando ponga el pulgar en la mesa, el último en copiarlo toma.",
+    "Brindis con Palma Blanca por {j2}. {j} dice por qué.",
+    "{j} dice 3 palabras que rimen con «palma». Si no puede, toma 1.",
+    "Ronda de agua para todos. Sí cuenta, y mañana lo agradecen.",
+    "{j} elige un compañero de shot para el resto de la ronda: {j2} o quien quiera.",
+    "El que haya dicho «ya me voy» hoy toma 1.",
+    "{j} narra lo que pasa en la mesa como partido de futbol. Si se ríe, toma.",
+    "Todos los que ya mandaron una historia hoy toman 1.",
+    "{j} reta a {j2} a piedra, papel o tijera. El que pierda, toma 2.",
+    "Silencio total por 15 segundos. El primero que hable, toma.",
+    "{j} pide una canción y toda la mesa canta el coro.",
+    "El que tenga el nombre más largo reparte 2.",
+    "{j}, haz una porra para la mesa o toma 1.",
+    "Todos los que estén sentados a la derecha de {j} toman 1.",
+    "{j} y {j2} brindan con los brazos entrelazados.",
+    "El que tenga más fotos de comida en el cel toma 1.",
+    "{j} dice algo que nunca ha hecho. Quien sí lo haya hecho, toma 1.",
+    "Shot de la amistad: {j} elige con quién se lo toma."
+  ],
+
+  /* ---------- AFTER: a platicar ---------- */
+  after: [
+    "{j}, lee tu último mensaje enviado en voz alta o toma 2.",
+    "Voten al más fiestero de la mesa. Esa persona toma 1.",
+    "{j} confiesa algo que nadie en la mesa sabe o toma 2.",
+    "Todos los que ya se arrepienten de algo hoy toman 1.",
+    "{j} le dice algo bonito a {j2} sin reírse. Si se ríe, toma.",
+    "{j} cuenta cuál es su plan perfecto de domingo.",
+    "{j}, enseña la última foto de tu galería o toma 2.",
+    "{j} y {j2} se dicen un cumplido. El que se ría, toma.",
+    "El que haya llorado viendo una película este año toma 1.",
+    "Voten: ¿quién va a estar más cansado mañana? Esa persona toma 1.",
+    "{j}, cuenta tu recuerdo favorito con alguien de la mesa.",
+    "{j} cuenta la anécdota más chistosa de una fiesta o toma 2.",
+    "El que se haya tomado una selfie hoy toma 1.",
+    "{j} elige a quién le confiaría las llaves de su casa y le explica por qué.",
+    "{j}, ¿cuál es tu sueño más grande? Si no quieres contestar, toma 1.",
+    "Todos dicen qué es lo que más valoran de {j}.",
+    "{j} cuenta qué le enseñaron sus papás que nunca se le va a olvidar.",
+    "{j} y {j2}: ¿quién es más probable que se haga famoso? La mesa vota y el elegido toma 1.",
+    "{j}, ¿qué canción te recuerda a esta noche? Pónganla.",
+    "El que haya mandado un audio de más de 2 minutos hoy toma 1.",
+    "{j} cuenta el momento más vergonzoso de su semana o toma 2.",
+    "{j} le da las gracias a {j2} por algo, en serio.",
+    "Todos los que quieran que esta noche no se acabe toman 1.",
+    "{j}, ¿qué es lo que más te gusta de tu ciudad?",
+    "{j} dice a dónde se iría de viaje mañana y con quién de la mesa.",
+    "Ronda de agua para todos. Los campeones se hidratan.",
+    "{j}, ¿cuál fue tu primera impresión de {j2}? Sé honesto.",
+    "{j} cuenta qué es lo que más disfruta de su trabajo o de lo que estudia.",
+    "El que haya cantado en voz alta hoy reparte 1.",
+    "{j} elige: contar un secreto inofensivo o tomar 2.",
+    "Brindis con Palma Blanca por los amigos que están y los que faltan.",
+    "{j}, ¿qué te hace muy feliz y casi nadie sabe?",
+    "{j} y {j2} cuentan juntos la historia de cómo se hicieron amigos.",
+    "Voten al que da los mejores consejos. Esa persona reparte 2.",
+    "{j}, ¿qué le dirías a tu yo de hace 5 años?",
+    "El último que haya dicho «te quiero» a alguien de la mesa, que lo diga ahorita.",
+    "{j} cuenta la mejor noche de su vida en 30 segundos.",
+    "{j}, elige a alguien de la mesa y dile por qué es importante para ti.",
+    "Todos los que ya tienen sueño toman agua y siguen jugando.",
+    "{j} propone el plan para la próxima vez que se junten. La mesa vota si va."
+  ]
+};
