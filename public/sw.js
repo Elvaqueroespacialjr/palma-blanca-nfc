@@ -7,7 +7,7 @@
    La lista y la versión las escribe herramientas/actualizar-sw.mjs:
    córrelo antes de publicar si agregas o cambias archivos.
    ===================================================================== */
-const VERSION = "202611271915"; // AUTO-VERSION
+const VERSION = "202611271916"; // AUTO-VERSION
 const ARCHIVOS = /* AUTO-LISTA */ ["antro-data.js","antro.css","antro.js","blinddate-data.js","blinddate.css","blinddate.js","fonts/barlow-condensed-600.0a7db401.woff2","fonts/barlow-condensed-700.05ba48a1.woff2","fonts/barlow-condensed-800.db5ae356.woff2","fonts/montserrat-400.6e2658ad.woff2","fonts/montserrat-500.12a7d81d.woff2","fonts/montserrat-600.a4f64ab8.woff2","fonts/montserrat-700.ae5da15d.woff2","general.css","general.js","icons/apple-touch-icon.png","icons/icono-192.png","icons/icono-512.png","img/astertap.55d52eb5.png","img/botella.313afcd4.png","img/drink-cantarito.88ef8275.jpg","img/drink-cristalino-tonic.eb3912c8.jpg","img/drink-el-abuelo.172bc7c0.jpg","img/drink-el-zurdo.d1fbb010.jpg","img/drink-fresa-palma.b5dec67a.jpg","img/drink-la-abuela.51afafbc.jpg","img/drink-margarita.a1dedf34.jpg","img/drink-medianoche.01a59fa6.jpg","img/drink-mula-de-tequila.55dbacef.jpg","img/drink-palmita.8c19ebb6.jpg","img/drink-playa-blanca.ca502d82.jpg","img/drink-tequila-sunrise.59baaea3.jpg","img/drink-vampiro.b0d23bdf.jpg","img/hero.08e956b9.png","img/margarita.acd01f0a.jpg","img/palm.3b6a6a7b.png","img/paloma.ff056014.jpg","index.html","juegos-data.js","lapeda-data.js","manifest.webmanifest","privacidad-data.js"];
 const CACHE = "pb-" + VERSION;
 
