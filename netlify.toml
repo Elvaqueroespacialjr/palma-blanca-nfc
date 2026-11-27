@@ -32,3 +32,9 @@
   for = "/*.css"
   [headers.values]
     Cache-Control = "public, max-age=300"
+
+# El service worker se revisa siempre para que los cambios lleguen pronto
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"

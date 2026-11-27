@@ -59,3 +59,6 @@ body.pb-navon .pb-modal{padding-top:calc(var(--pbnav) + 10px)}
 /* Modo Antro: el logo ya va en la barra superior, no se repite en su cabecera */
 body.pb-navon #tm .top>img{display:none}
 body.pb-navon #tm .top{justify-content:flex-end}
+/* Aviso de señal */
+.pb-red{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);z-index:99;max-width:calc(100% - 32px);padding:11px 16px;border-radius:12px;background:#0E1630;color:#F3EEE3;border:1px solid rgba(201,164,106,.5);font:600 14px "DM Sans",system-ui,sans-serif;text-align:center;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.pb-red.on{opacity:1;transform:translate(-50%,0)}

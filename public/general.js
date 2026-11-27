@@ -17,15 +17,16 @@ const lock = on => document.body.classList.toggle("lock", !!on);
 let dev = LS.get("pb.dev");
 if (!dev) { dev = Math.random().toString(36).slice(2, 12); LS.set("pb.dev", dev); }
 let cola = [];
-try { cola = JSON.parse(sessionStorage.getItem("pb.cola") || "[]"); } catch (e) {}
-const guardarCola = () => { try { sessionStorage.setItem("pb.cola", JSON.stringify(cola.slice(-200))); } catch (e) {} };
+/* La cola se guarda en el cel: si no hay señal, los datos esperan y se mandan cuando vuelva */
+try { cola = JSON.parse(LS.get("pb.cola") || sessionStorage.getItem("pb.cola") || "[]"); if (!Array.isArray(cola)) cola = []; } catch (e) { cola = []; }
+const guardarCola = () => LS.set("pb.cola", JSON.stringify(cola.slice(-300)));
 window.pbLog = function (tipo, detalle) {
   cola.push({ tipo: String(tipo).slice(0, 40), detalle: String(detalle || "").slice(0, 80), device: dev, src: "app", ts: new Date().toISOString() });
   guardarCola(); if (cola.length >= 20) enviar();
 };
 let enviando = false;
 async function enviar() {
-  if (enviando || !cola.length) return; enviando = true;
+  if (enviando || !cola.length || navigator.onLine === false) return; enviando = true;
   const lote = cola.slice(0, 200), body = JSON.stringify(lote);
   try {
     let ok = false;
@@ -37,6 +38,18 @@ async function enviar() {
 }
 setInterval(enviar, 30000);
 document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") enviar(); });
+
+/* ---------- Funciona sin señal: la app se guarda en el cel (sw.js) ---------- */
+if ("serviceWorker" in navigator && /(^|\.)palma-blanca-nfc\.netlify\.app$|^localhost$|^127\.0\.0\.1$/.test(location.hostname)) {
+  window.addEventListener("load", () => { navigator.serviceWorker.register("/sw.js").catch(() => {}); });
+}
+function avisoRed(txt) {
+  let t = document.getElementById("pbRed");
+  if (!t) { t = document.createElement("div"); t.id = "pbRed"; t.className = "pb-red"; t.setAttribute("role", "status"); document.body.appendChild(t); }
+  t.textContent = txt; t.classList.add("on"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("on"), 4200);
+}
+window.addEventListener("offline", () => avisoRed("Sin señal: las recetas y los juegos siguen funcionando."));
+window.addEventListener("online", () => { avisoRed("Volvió la señal."); enviar(); });
 
 /* Qué se registra: aperturas, secciones y acciones principales (en fase de captura,
    para que funcione aunque otros botones detengan el clic). */

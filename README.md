@@ -29,5 +29,10 @@ En Netlify → Project configuration → Environment variables:
 
 Para generar códigos de botellas premiadas: copia el secreto a `herramientas/.premio-secret` (está ignorado por git) y corre `node herramientas/generar-codigos.mjs`.
 
+## Funciona sin señal
+`public/sw.js` guarda la app, las fotos y las fuentes en el cel la primera vez que se abre. El muro, los premios y las estadísticas siempre necesitan internet; los datos de uso esperan guardados y se mandan cuando vuelve la señal.
+
+**Antes de publicar cambios**, corre `node herramientas/actualizar-sw.mjs` para que la lista de archivos y la versión del `sw.js` se actualicen (si no, los celulares siguen usando la copia anterior hasta que vuelvan a tener señal).
+
 ## Publicar
 Netlify publica la carpeta `public/` y las funciones de `netlify/functions/` (ver `netlify.toml`).
