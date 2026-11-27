@@ -40,7 +40,7 @@ setInterval(enviar, 30000);
 document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") enviar(); });
 
 /* ---------- Funciona sin señal: la app se guarda en el cel (sw.js) ---------- */
-if ("serviceWorker" in navigator && /(^|\.)palma-blanca-nfc\.netlify\.app$|\.github\.io$|^localhost$|^127\.0\.0\.1$/.test(location.hostname)) {
+if ("serviceWorker" in navigator && /(^|\.)palma-blanca-nfc\.netlify\.app$|\.github\.io$|(^|\.)tequilapalmablanca\.com$|^localhost$|^127\.0\.0\.1$/.test(location.hostname)) {
   window.addEventListener("load", () => { navigator.serviceWorker.register("sw.js").catch(() => {}); });
 }
 function avisoRed(txt) {
