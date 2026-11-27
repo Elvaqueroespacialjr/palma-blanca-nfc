@@ -69,7 +69,10 @@ window.BLINDDATE_DATA = {
         "¿Qué es lo más romántico que alguien ha hecho por ti?",
         "Del 1 al 10, ¿qué tan nervioso llegaste hoy?",
         "¿Qué tendría que pasar para que hubiera una segunda cita?",
-        "Véanse a los ojos 15 segundos. El primero que se ría, toma."
+        "Véanse a los ojos 15 segundos. El primero que se ría, toma.",
+        "Mírense a los ojos 30 segundos. El primero que se ría se toma un shot.",
+        "Tómense de la mano durante una ronda.",
+        "Dile «amor» a tu pareja durante una ronda. Si se te olvida, tomas."
       ]
     },
     {
@@ -82,7 +85,18 @@ window.BLINDDATE_DATA = {
         "Digan 3 cosas que tengan en común en 20 segundos. Si no llegan, los dos toman.",
         "Escríbanse un piropo en una servilleta y léanlo en voz alta.",
         "Hagan juntos un brindis por {amiga}.",
-        "Cuéntenle al grupo cómo se «conocieron» pero en versión telenovela."
+        "Cuéntenle al grupo cómo se «conocieron» pero en versión telenovela.",
+        "Tú y tu pareja digan una palabra al mismo tiempo. Si no coinciden, los dos toman.",
+        "Tómate una selfie con tu pareja.",
+        "Intercambia una prenda o accesorio con tu pareja: gorra, chamarra o lentes.",
+        "Tu pareja elige tu castigo.",
+        "Cambia de pareja por una ronda.",
+        "Pregunta incómoda: el grupo le hace una pregunta incómoda a la pareja. Si no contestan, toman.",
+        "Todos te hacen una pregunta y solo puedes contestar una. Por cada una que no contestes, tomas.",
+        "Verdad o reto: tu pareja elige.",
+        "Las chicas toman.",
+        "Los chicos toman.",
+        "Regla: inventa una regla. Quien no la obedezca, toma."
       ]
     }
   ],
