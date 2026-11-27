@@ -11,7 +11,7 @@ const lista = [];
   for (const n of readdirSync(dir)) {
     const p = join(dir, n);
     if (statSync(p).isDirectory()) recorrer(p);
-    else if (!omitir.has(n) && !n.startsWith(".")) lista.push("/" + relative(pub, p).split("\\").join("/"));
+    else if (!omitir.has(n) && !n.startsWith(".")) lista.push(relative(pub, p).split("\\").join("/"));
   }
 })(pub);
 lista.sort();
