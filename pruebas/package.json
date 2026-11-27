@@ -1,0 +1,7 @@
+{
+  "name": "palma-blanca-simulaciones",
+  "private": true,
+  "type": "module",
+  "scripts": { "simular": "node simular.mjs", "reporte": "node reporte.mjs" },
+  "dependencies": { "playwright": "1.49.1" }
+}

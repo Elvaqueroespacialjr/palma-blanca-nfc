@@ -1,0 +1,26 @@
+[
+  {
+    "titulo": "Con 100 personas no alcanza para asegurar que 4 de los 5 sorteos sean parejos",
+    "gravedad": "media",
+    "que": "El drink del día sí tuvo datos suficientes y salió parejo (y nunca repitió el mismo drink). Pero la ruleta del Modo Antro, el quiz, la ruleta de «¿A ver qué te toca?» y El Dedo tienen menos de 5 resultados esperados por casilla, así que la prueba no puede concluir. Ninguno mostró sesgo claro (la ruleta del Antro quedó cerca del límite, p = 0.06, con casillas como «Toma el último que levante la mano» saliendo 6 veces contra 2 esperadas), pero con tan pocos datos eso puede ser suerte. También se probaron solo 3 códigos de premio falsos (los 3 se rechazaron bien).",
+    "celular": "No depende del celular.",
+    "reproducir": "Abrir salida/reporte.html, sección «¿Los sorteos son parejos?».",
+    "correccion": "No hay que cambiar la app. Correr 1000 simulaciones (cambiar N_SIMULACIONES a 1000 en pruebas/simular.mjs; tarda unas 2 h 30 min) y, para El Dedo, la prueba enfocada con RONDAS=600 (node dedo.mjs)."
+  },
+  {
+    "titulo": "Cada giro de la ruleta del Modo Antro tarda 6 segundos",
+    "gravedad": "baja",
+    "que": "Todo funciona, pero el giro completo dura en promedio 6.0 s (la animación sola es de 5.6 s), contra 3.4 s del drink del día y 2.5 s de «¿A ver qué te toca?». En un antro con ruido y prisa, 6 s se sienten largos, sobre todo cuando se gira varias veces seguidas.",
+    "celular": "Todos (medido en los 5 celulares; 85 giros).",
+    "reproducir": "Modo Antro → Tengo 18 → Entrar sin foto → Girar.",
+    "correccion": "Bajar la duración del giro a unos 4 s (en antro.js, la línea «const dur = reduce() ? 700 : 5600» → 4000) o dejar que un segundo toque en la ruleta la detenga y muestre el resultado. Espera tu aprobación."
+  },
+  {
+    "titulo": "El Dedo: hay que confirmar en un celular real que la ronda siguiente siempre arranque",
+    "gravedad": "baja",
+    "que": "En la prueba enfocada de 150 rondas, El Dedo eligió parejo (el último dedo en tocar ganó 20 de 75 veces, lo esperado eran unas 22). Pero, en la simulación, una de cada dos rondas no registró los dedos hasta volver a soltar la pantalla. Lo más probable es que sea por cómo el simulador suelta los dedos (todos de golpe), no por la app; no se puede asegurar sin probarlo en un celular.",
+    "celular": "Simulado en Pixel 7; falta probarlo en un iPhone y un Android reales.",
+    "reproducir": "¿A ver qué te toca? → Elegir juego → El Dedo → poner 3 dedos, esperar a que elija, soltar, y volver a poner 3 dedos enseguida.",
+    "correccion": "Probarlo a mano. Si en un celular real la segunda ronda no arranca, la app debería reiniciar la ronda también cuando el último dedo se suelta (evento de cancelación), no solo con «soltar». Espera tu aprobación."
+  }
+]
