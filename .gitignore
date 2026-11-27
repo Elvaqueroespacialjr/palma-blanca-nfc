@@ -9,3 +9,11 @@ dev-local.sh
 PIN-STAFF*
 *.csv
 .DS_Store
+pruebas/node_modules
+pruebas/snapshot-app
+pruebas/salida
+
+# Respaldos locales y capturas de pruebas
+respaldos/*.html
+respaldos/*.backup-*.js
+respaldos/capturas/

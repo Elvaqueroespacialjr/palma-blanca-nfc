@@ -23,7 +23,10 @@ window.JUEGOS_DATA = {
     { id: "bomba",      nombre: "La Bomba",                color: "#e2566b", instruccion: "Pásense el cel diciendo algo de la categoría. A quien le explote, toma." },
     { id: "probable",   nombre: "¿Quién es más probable?", color: "#8e78ff", instruccion: "Lean la frase, cuenten 3-2-1 y todos señalan. El más señalado toma." },
     { id: "cinco",      nombre: "3 en 5 segundos",         color: "#55b98a", instruccion: "Di 3 cosas de la categoría antes de que se acabe la barra." },
-    { id: "duelo",      nombre: "Duelo de Reflejos",       color: "#ff9f43", instruccion: "Dos personas, una de cada lado. Cuando se ponga verde, ¡toca! El más lento toma." }
+    { id: "duelo",      nombre: "Duelo de Reflejos",       color: "#ff9f43", instruccion: "Dos personas, una de cada lado. Cuando se ponga verde, ¡toca! El más lento toma." },
+    { id: "rey",        nombre: "El Rey",                  color: "#e4c27a", instruccion: "Cada quien saca una carta en su turno y cumple la regla. Quien saque el 4º rey se toma el vaso del centro." },
+    { id: "quiensoy",   nombre: "¿Quién soy?",             color: "#55d495", instruccion: "Cel en la frente: tus amigos te dan pistas y tienes 60 segundos para adivinar todas las palabras que puedas." },
+    { id: "impostor",   nombre: "El Impostor",             color: "#d98bc4", instruccion: "Todos ven la palabra secreta menos el impostor. Den pistas y descubran quién es." }
   ],
 
   /* ---------- Gira la Botella: retos (mínimo 30) ---------- */
@@ -230,5 +233,40 @@ window.JUEGOS_DATA = {
     "cosas que hay en la playa",
     "deportes con pelota",
     "bebidas sin alcohol"
+  ],
+
+  /* ---------- ¿QUIÉN SOY? (cel en la frente) ----------
+     Categorías y palabras. Agrega o quita palabras dentro de cada lista.
+     La categoría «Mezcla» junta todas automáticamente.                */
+  quienSoy: [
+      { nombre: "Famosos mexicanos",
+        palabras: ["Salma Hayek", "Guillermo del Toro", "Gael García Bernal", "Diego Luna", "Eugenio Derbez", "Thalía", "Luis Miguel", "Chabelo", "Chespirito", "Cantinflas", "Frida Kahlo", "Diego Rivera", "Paulina Rubio", "Lucero", "Verónica Castro", "Yalitza Aparicio", "Alfonso Cuarón", "Checo Pérez", "Canelo Álvarez", "Julio César Chávez", "Ana Gabriela Guevara", "Lorena Ochoa", "Memo Ochoa", "Galilea Montijo", "Andrea Legarreta", "Brozo", "Luisito Comunica", "Yuya", "Juanpa Zurita", "Kimberly Loaiza", "Kate del Castillo", "Ninel Conde", "Silvia Pinal", "María Félix", "Pedro Infante", "Jorge Negrete", "Gloria Trevi", "El Santo", "Mistico", "Adrián Uribe", "Omar Chaparro", "Consuelo Duval", "Aracely Arámbula"] },
+      { nombre: "Cantantes y canciones",
+        palabras: ["Peso Pluma", "Christian Nodal", "Natanael Cano", "Carín León", "Grupo Firme", "Juan Gabriel", "Vicente Fernández", "Alejandro Fernández", "Maná", "Café Tacvba", "Belinda", "Danna Paola", "Sin Bandera", "Reik", "Camila", "Julieta Venegas", "Natalia Lafourcade", "Kenia Os", "RBD", "Timbiriche", "Los Tigres del Norte", "Banda MS", "Ángela Aguilar", "Pepe Aguilar", "Selena", "Bad Bunny", "Shakira", "Karol G", "La Bikina", "Cielito Lindo", "El Rey", "Amor Eterno", "Ella Baila Sola", "Coqueta", "La Chona", "Payaso de Rodeo", "Querida", "Bésame Mucho", "Si nos dejan", "Mariposa Traicionera", "Corazón Espinado", "Sabor a mí"] },
+      { nombre: "Caricaturas y personajes",
+        palabras: ["El Chavo del 8", "La Chilindrina", "Don Ramón", "Quico", "El Chapulín Colorado", "Bob Esponja", "Patricio Estrella", "Calamardo", "Homero Simpson", "Bart Simpson", "Pikachu", "Goku", "Vegeta", "Naruto", "Mickey Mouse", "Shrek", "Burro de Shrek", "Miguel de Coco", "Héctor de Coco", "Woody", "Buzz Lightyear", "Nemo", "Dory", "Scooby-Doo", "Tom y Jerry", "Piolín", "Bugs Bunny", "Correcaminos", "Speedy González", "Dora la Exploradora", "Peppa Pig", "Mafalda", "Condorito", "Ben 10", "Pedro Picapiedra", "Popeye", "El Pájaro Loco", "Garfield", "Snoopy", "Hello Kitty", "Sonic", "Mario Bros", "Pac-Man", "Stitch"] },
+      { nombre: "Películas y series",
+        palabras: ["Nosotros los Nobles", "No se aceptan devoluciones", "Amores perros", "Y tu mamá también", "Roma", "Coco", "El laberinto del fauno", "Club de Cuervos", "La Casa de las Flores", "Narcos", "Rebelde", "Luis Miguel, la serie", "Vecinos", "La Rosa de Guadalupe", "Como dice el dicho", "El Señor de los Cielos", "La Casa de Papel", "Stranger Things", "Juego de Tronos", "Friends", "Titanic", "Harry Potter", "Star Wars", "Toy Story", "Avengers", "Rápidos y Furiosos", "Volver al futuro", "El Rey León", "Frozen", "Mi villano favorito", "La Bella y la Bestia", "Jurassic Park", "Barbie", "Breaking Bad", "Los Simpson", "Merlina", "El juego del calamar", "María la del Barrio", "Betty la fea", "Mamma Mia", "Intensamente", "Mi pobre angelito"] },
+      { nombre: "Futbolistas",
+        palabras: ["Memo Ochoa", "Hugo Sánchez", "Rafa Márquez", "Chicharito", "Raúl Jiménez", "Chucky Lozano", "Andrés Guardado", "Cuauhtémoc Blanco", "Jorge Campos", "Santiago Giménez", "Edson Álvarez", "Carlos Vela", "Luis Hernández el Matador", "Oribe Peralta", "Pável Pardo", "Henry Martín", "Gignac", "Messi", "Cristiano Ronaldo", "Neymar", "Mbappé", "Haaland", "Vinícius Jr", "Ronaldinho", "Ronaldo Nazário", "Zidane", "Maradona", "Pelé", "Beckham", "Iniesta", "Xavi", "Sergio Ramos", "Iker Casillas", "Luis Suárez", "Lewandowski", "Modrić", "Kaká", "Salah", "Griezmann", "Buffon", "Lamine Yamal", "Julián Quiñones"] },
+      { nombre: "Cosas de fiesta y antro",
+        palabras: ["DJ", "Cadenero", "Lista VIP", "Pulsera", "Shot", "Botella", "Hielo", "Limón", "Sal", "Cubeta de cerveza", "Karaoke", "Bola disco", "Pista de baile", "Mesero", "Cover", "Barra", "Bartender", "Brindis", "Cruda", "Tequila", "Palma Blanca", "Michelada", "Paloma", "Selfie", "Confeti", "Luces neón", "Reggaetón", "Banda", "Mariachi", "After", "Pre", "Uber", "Fila del baño", "Cumpleañero", "Pastel", "Piñata", "Globos", "Mesa VIP", "Perreo", "Bocina", "Playlist", "Caballito"] },
+      { nombre: "Comida mexicana",
+        palabras: ["Tacos al pastor", "Pozole", "Mole", "Chiles en nogada", "Tamales", "Enchiladas", "Chilaquiles", "Quesadilla", "Sope", "Huarache", "Tlayuda", "Gordita", "Torta ahogada", "Birria", "Carnitas", "Cochinita pibil", "Barbacoa", "Menudo", "Elote", "Esquite", "Guacamole", "Pico de gallo", "Tostada", "Flautas", "Pambazo", "Chalupa", "Tlacoyo", "Churros", "Concha", "Arroz con leche", "Agua de horchata", "Agua de jamaica", "Champurrado", "Atole", "Chile relleno", "Ceviche", "Aguachile", "Marquesita", "Raspado", "Dorilocos", "Tacos de canasta", "Pozole verde"] }
+  ],
+
+  /* ---------- EL IMPOSTOR ----------
+     Una persona no sabe la palabra secreta. «Mezcla» junta todas.      */
+  impostor: [
+      { nombre: "Fiesta y antro",
+        palabras: ["DJ", "Cadenero", "Lista VIP", "Pulsera", "Shot", "Botella", "Hielo", "Limón", "Sal", "Cubeta de cerveza", "Karaoke", "Bola disco", "Pista de baile", "Mesero", "Cover", "Barra", "Bartender", "Brindis", "Cruda", "Tequila", "Palma Blanca", "Michelada", "Paloma", "Selfie", "Confeti", "Luces neón", "Reggaetón", "Banda", "Mariachi", "After", "Pre", "Uber", "Fila del baño", "Cumpleañero", "Pastel", "Piñata", "Globos", "Mesa VIP", "Perreo", "Bocina", "Playlist", "Caballito"] },
+      { nombre: "Comida mexicana",
+        palabras: ["Tacos al pastor", "Pozole", "Mole", "Chiles en nogada", "Tamales", "Enchiladas", "Chilaquiles", "Quesadilla", "Sope", "Huarache", "Tlayuda", "Gordita", "Torta ahogada", "Birria", "Carnitas", "Cochinita pibil", "Barbacoa", "Menudo", "Elote", "Esquite", "Guacamole", "Pico de gallo", "Tostada", "Flautas", "Pambazo", "Chalupa", "Tlacoyo", "Churros", "Concha", "Arroz con leche", "Agua de horchata", "Agua de jamaica", "Champurrado", "Atole", "Chile relleno", "Ceviche", "Aguachile", "Marquesita", "Raspado", "Dorilocos", "Tacos de canasta", "Pozole verde"] },
+      { nombre: "Lugares de México",
+        palabras: ["Vallarta", "Chapala", "Tequila", "Guadalajara", "Cancún", "Tulum", "Oaxaca", "CDMX", "Monterrey", "Mazatlán", "Acapulco", "Los Cabos", "Puerto Escondido", "Sayulita", "San Miguel de Allende", "Guanajuato", "Mérida", "Chichén Itzá", "Teotihuacán", "Xochimilco", "El Zócalo", "Bellas Artes", "Ángel de la Independencia", "Chapultepec", "Barrancas del Cobre", "Valle de Guadalupe", "Ensenada", "Tijuana", "Puebla", "Cholula", "Taxco", "Querétaro", "Zacatecas", "Morelia", "Pátzcuaro", "Bacalar", "Holbox", "Isla Mujeres", "Cozumel", "Huasteca Potosina", "Tapalpa", "Mazamitla", "Tlaquepaque", "Real de Catorce"] },
+      { nombre: "Famosos",
+        palabras: ["Salma Hayek", "Guillermo del Toro", "Gael García Bernal", "Diego Luna", "Eugenio Derbez", "Thalía", "Luis Miguel", "Chabelo", "Chespirito", "Cantinflas", "Frida Kahlo", "Diego Rivera", "Paulina Rubio", "Lucero", "Verónica Castro", "Yalitza Aparicio", "Alfonso Cuarón", "Checo Pérez", "Canelo Álvarez", "Julio César Chávez", "Ana Gabriela Guevara", "Lorena Ochoa", "Memo Ochoa", "Galilea Montijo", "Andrea Legarreta", "Brozo", "Luisito Comunica", "Yuya", "Juanpa Zurita", "Kimberly Loaiza", "Kate del Castillo", "Ninel Conde", "Silvia Pinal", "María Félix", "Pedro Infante", "Jorge Negrete", "Gloria Trevi", "El Santo", "Mistico", "Adrián Uribe", "Omar Chaparro", "Consuelo Duval", "Aracely Arámbula"] },
+      { nombre: "Objetos de casa",
+        palabras: ["Sillón", "Refrigerador", "Licuadora", "Microondas", "Plancha", "Escoba", "Trapeador", "Lavadora", "Tele", "Control remoto", "Almohada", "Cobija", "Lámpara", "Espejo", "Cortina", "Tapete", "Cuchara", "Tenedor", "Sartén", "Olla", "Molcajete", "Comal", "Tortillero", "Garrafón", "Ventilador", "Cafetera", "Tostador", "Regadera", "Cepillo de dientes", "Toalla", "Jabón", "Reloj", "Florero", "Silla", "Cama", "Ropero", "Cajón", "Llaves", "Foco", "Enchufe", "Escalera", "Tendedero", "Cubeta"] }
   ]
 };

@@ -2525,6 +2525,101 @@ body.dk{background:linear-gradient(180deg,#fde9e5 0%,#f8f2e7 60%) fixed}
 .jg-mid .btn{padding:11px 18px;font-size:15px}
 .jg-toast{position:fixed;left:50%;bottom:calc(46px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:70;background:var(--bone);color:var(--navy);padding:11px 16px;border-radius:12px;font-weight:700;font-size:14px;max-width:calc(100% - 32px);text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.35)}
 @media (prefers-reduced-motion:reduce){.jg-body .pop,.jg-mark,.jg-bomb.beat,.jg-bomb .spark,#jg.jg-shake{animation:none}}
+/* Juegos para el grupo: El Rey, ¿Quién soy?, El Impostor (solo #jg) */
+#jg .jn{display:grid;gap:14px;padding:4px 0 8px}
+#jg .jn-centro{text-align:center;justify-items:center}
+#jg .jn-k{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--kraft)}
+#jg .jn-k.ok{color:#55d495}#jg .jn-k.pa{color:#ff9f43}
+#jg .jn-h{margin:0;font-family:var(--f-brand);font-weight:400;font-size:clamp(26px,7.6vw,34px);line-height:1.12;color:var(--bone);text-wrap:balance}
+#jg .jn-sub{margin:0;font-size:16.5px;line-height:1.5;color:var(--bone-dim)}#jg .jn-sub b{color:var(--bone)}
+#jg .jn-btn{width:100%;min-height:56px;border:0;border-radius:16px;padding:14px 18px;font:700 18px var(--f-body);letter-spacing:.01em;cursor:pointer;color:var(--bone);background:var(--navy-2);touch-action:manipulation}
+#jg .jn-btn:active{transform:scale(.98)}#jg .jn-btn:disabled{opacity:.4;cursor:default;transform:none}
+#jg .jn-oro{background:var(--kraft);color:var(--navy)}
+#jg .jn-linea{background:transparent;border:2px solid var(--line);color:var(--bone)}
+#jg .jn-grande{min-height:64px;font-size:20px}
+#jg .jn-btn:focus-visible,#jg .jn-pk:focus-visible,#jg .jn-salir:focus-visible,#jg .jn-mazo:focus-visible,#jg .jn-ver:focus-visible{outline:3px solid var(--kraft);outline-offset:3px}
+#jg .jn-add{display:grid;grid-template-columns:1fr auto;gap:8px}
+#jg .jn-add input,#jg .jn-input{min-width:0;min-height:56px;border-radius:16px;border:2px solid var(--line);background:var(--navy-2);color:var(--bone);font:500 18px var(--f-body);padding:0 16px}
+#jg .jn-add input:focus,#jg .jn-input:focus{outline:none;border-color:var(--kraft)}
+#jg .jn-add .jn-btn{width:auto;padding:0 20px}
+#jg .jn-chips{display:flex;flex-wrap:wrap;gap:8px}
+#jg .jn-chip{display:inline-flex;align-items:center;gap:4px;min-height:48px;padding:0 6px 0 16px;border-radius:999px;background:var(--navy-2);border:1px solid var(--line);font-size:17px;font-weight:600}
+#jg .jn-chip button{width:40px;height:40px;border:0;border-radius:50%;background:transparent;color:var(--bone-dim);font-size:24px;line-height:1;cursor:pointer}
+#jg .jn-vacio,#jg .jn-cuenta{margin:0;color:var(--bone-dim);font-size:15px}
+#jg .jn-aviso{margin:0;padding:10px 14px;border-radius:12px;background:rgba(201,164,106,.16);font-size:15px}
+#jg .jn-turno{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border-radius:18px;background:var(--navy-2);border:1px solid var(--line);border-left:5px solid var(--gc,var(--kraft))}
+#jg .jn-turno small{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--bone-dim);font-weight:700}
+#jg .jn-turno b{display:block;font-family:var(--f-brand);font-weight:400;font-size:clamp(26px,8vw,34px);line-height:1.05;color:var(--bone);overflow-wrap:anywhere}
+#jg .jn-turno span{display:block;margin-top:4px;font-size:14px;color:var(--bone-dim)}
+#jg .jn-salir{flex:none;min-height:48px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--bone);font:600 15px var(--f-body);cursor:pointer}
+#jg .jn-salir.abajo{justify-self:center;min-height:48px;border:0;text-decoration:underline;color:var(--bone-dim)}
+#jg .jn-activas{list-style:none;margin:0;padding:12px 14px;border-radius:14px;background:rgba(201,164,106,.12);border:1px solid rgba(201,164,106,.35);display:grid;gap:6px;font-size:15px;line-height:1.4}
+#jg .jn-activas b{color:var(--kraft)}
+#jg .jn-mazo{display:grid;place-items:center;min-height:min(46dvh,360px);border:0;border-radius:22px;background:none;cursor:pointer;padding:0;touch-action:manipulation}
+#jg .jn-dorso{width:min(62vw,230px);aspect-ratio:5/7;border-radius:18px;display:grid;place-content:center;gap:8px;text-align:center;background:repeating-linear-gradient(45deg,#18294d 0 10px,#1d3160 10px 20px);border:3px solid var(--kraft);box-shadow:0 18px 40px rgba(0,0,0,.4)}
+#jg .jn-dorso b{font-family:var(--f-brand);font-weight:400;font-size:46px;color:var(--kraft)}#jg .jn-dorso small{font-size:15px;color:var(--bone);padding:0 12px}
+#jg .jn-carta{position:relative;justify-self:center;width:min(56vw,210px);aspect-ratio:5/7;border-radius:18px;background:#fbf7ee;color:#0e1630;box-shadow:0 18px 40px rgba(0,0,0,.45);display:grid;place-items:center}
+#jg .jn-carta.roja{color:#c2263b}
+#jg .jn-carta.voltea{animation:jnvoltea .55s cubic-bezier(.2,.9,.3,1.15)}
+@keyframes jnvoltea{0%{transform:perspective(700px) rotateY(90deg) scale(.85)}100%{transform:none}}
+#jg .jn-carta .rango{font-family:var(--f-brand);font-weight:400;font-size:clamp(70px,22vw,96px);line-height:1}
+#jg .jn-carta .palo{position:absolute;bottom:22%;font-size:34px}
+#jg .jn-carta .esq{position:absolute;top:10px;left:12px;display:grid;justify-items:center;font:700 20px var(--f-body);line-height:1}
+#jg .jn-carta .esq i{font-style:normal;font-size:16px}
+#jg .jn-carta .esq.ab{top:auto;left:auto;bottom:10px;right:12px;transform:rotate(180deg)}
+#jg .jn-regla{background:var(--navy-2);border:1px solid var(--line);border-top:4px solid var(--gc,var(--kraft));border-radius:16px;padding:14px 16px;text-align:center}
+#jg .jn-regla p{margin:6px 0 0;font-size:18px;line-height:1.5;color:var(--bone)}
+#jg .jn-rey{color:var(--kraft)!important;font-weight:700;font-size:16px!important}
+#jg .jn-q{margin:2px 0 -4px;font-size:16px;font-weight:700;color:var(--bone)}#jg .jn-q span{font-weight:400;color:var(--bone-dim);font-size:14px}
+#jg .jn-pick{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
+#jg .jn-pk{min-height:56px;border-radius:14px;border:2px solid var(--line);background:var(--navy-2);color:var(--bone);font:600 17px var(--f-body);cursor:pointer;padding:6px 10px;overflow-wrap:anywhere;touch-action:manipulation}
+#jg .jn-pk.on{background:var(--kraft);border-color:var(--kraft);color:var(--navy)}
+#jg .jn-cats{display:grid;gap:10px}#jg .jn-cat{text-align:left}
+#jg .jn-sw{display:flex;align-items:center;gap:12px;min-height:56px;font-size:17px;font-weight:600}#jg .jn-sw input{width:26px;height:26px;accent-color:var(--kraft)}
+#jg .jn-instr{display:grid;gap:10px;background:var(--navy-2);border-radius:16px;padding:14px 16px;font-size:16.5px;line-height:1.5}#jg .jn-instr p{margin:0}
+#jg .jn-listas{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#jg .jn-listas ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px;font-size:15.5px}#jg .jn-listas li{overflow-wrap:anywhere}#jg .jn-listas .v{color:var(--bone-dim)}
+#jg .jn-nom{color:var(--kraft)}
+#jg .jn-ver{position:relative;width:100%;min-height:240px;border-radius:22px;border:3px dashed var(--kraft);background:var(--navy-2);color:var(--bone);cursor:pointer;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:none;padding:20px}
+#jg .jn-ver .tapa{font-size:20px;font-weight:700;line-height:1.4}
+#jg .jn-ver .papel{display:none}
+#jg .jn-ver.on{border-style:solid;background:#fbf7ee;color:#0e1630}
+#jg .jn-ver.on .tapa{display:none}#jg .jn-ver.on .papel{display:grid;gap:10px}
+#jg .jn-ver .papel b{font-family:var(--f-brand);font-weight:400;font-size:clamp(32px,10vw,44px);line-height:1.1}
+#jg .jn-ver .papel b.imp{color:#c2263b}#jg .jn-ver .papel small{font-size:16px}
+#jg .jn-orden{margin:0;padding-left:28px;display:grid;gap:8px;font-size:20px;font-weight:600}
+#jg .jn-redoble{display:flex;gap:10px;justify-content:center;margin:10px 0}
+#jg .jn-redoble i{width:18px;height:18px;border-radius:50%;background:var(--kraft);animation:jnred .5s ease-in-out infinite alternate}
+#jg .jn-redoble i:nth-child(2){animation-delay:.15s}#jg .jn-redoble i:nth-child(3){animation-delay:.3s}
+@keyframes jnred{to{transform:translateY(-14px);opacity:.4}}
+#jg .jn-bien .jn-k{color:#55d495}
+#jg .jn-pal{color:var(--kraft)}
+#jg .jn-final{text-align:center;justify-items:center;padding-top:20px}
+#jg .jn-corona{font-size:80px;line-height:1;animation:jnvoltea .6s ease-out}
+/* Resumen (mismo diseño que el de La Peda) */
+#jg .jn-big{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:8px}
+#jg .jn-big div{background:var(--navy-2);border-radius:14px;padding:12px;text-align:center}
+#jg .jn-big b{display:block;font-family:'Anton',sans-serif;font-size:34px;line-height:1;color:var(--kraft)}#jg .jn-big span{font-size:13px;color:var(--bone-dim)}
+#jg .jn-award{display:flex;gap:14px;align-items:center;background:var(--navy-2);border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+#jg .jn-award .em{font-size:32px}#jg .jn-award small{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim);font-weight:700}
+#jg .jn-award b{display:block;font-size:20px}#jg .jn-award p{margin:0;font-size:14px;color:var(--bone-dim)}
+#jg .jn-tabla{display:grid;gap:4px}#jg .jn-tabla div{display:flex;justify-content:space-between;gap:10px;padding:10px 4px;border-bottom:1px solid var(--line);font-size:16px}
+#jg .jn-tabla span:last-child{color:var(--bone-dim);font-variant-numeric:tabular-nums;white-space:nowrap}
+#jg .jn-nota{margin:0;font-size:13px;color:var(--bone-dim)}
+/* ¿Quién soy?: pantalla completa, de lado */
+.jn-qs{position:fixed;inset:0;z-index:120;background:#0e1630;color:#f3eee3;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none}
+.jn-qs-in{position:absolute;inset:0;display:flex;flex-direction:column;padding:max(12px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(12px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.jn-qs.rot .jn-qs-in{width:100vh;height:100vw;inset:auto;top:0;left:100vw;transform-origin:0 0;transform:rotate(90deg)}
+.jn-qs-top{display:flex;align-items:center;gap:14px;z-index:2}
+.jn-qs-t{font-family:'Anton',sans-serif;font-size:44px;line-height:1;color:#c9a46a;min-width:2ch}.jn-qs-t.poco{color:#ff6b5b}
+.jn-qs-n{font:700 22px var(--f-body);opacity:.8}
+.jn-qs-x{margin-left:auto;width:56px;height:56px;border-radius:50%;border:0;background:rgba(243,238,227,.14);color:#f3eee3;font-size:24px;cursor:pointer}
+.jn-qs-w{flex:1;display:grid;place-items:center;text-align:center;font-family:var(--f-brand);font-size:clamp(40px,11vmax,96px);line-height:1.05;padding:0 4vmin;text-wrap:balance;overflow-wrap:anywhere;pointer-events:none;z-index:1}
+.jn-qs-z{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+.jn-qs-z button{border:0;background:transparent;color:rgba(243,238,227,.28);font:800 15px var(--f-body);letter-spacing:.2em;display:flex;align-items:flex-end;justify-content:center;padding-bottom:18px;cursor:pointer;touch-action:manipulation}
+.jn-qs.bien{background:#1e8f55}.jn-qs.pasa{background:#e0782a}
+@media (prefers-reduced-motion:reduce){#jg .jn-carta.voltea,#jg .jn-corona,#jg .jn-redoble i{animation:none}}
+
 </style>
 <script src="juegos-data.js"></script>
 <script>
@@ -2586,7 +2681,10 @@ const ICON={
   bomba:'<circle cx="14" cy="19" r="9"/><path d="M20 12l3-3"/><path d="M23 9c1-2 3-2 4-4"/>',
   probable:'<circle cx="16" cy="9" r="4"/><path d="M8 27c0-5 3.5-8 8-8s8 3 8 8"/><path d="M3 15h6M23 15h6"/>',
   cinco:'<circle cx="16" cy="18" r="10"/><path d="M16 12v6l4 3"/><path d="M13 4h6"/>',
-  duelo:'<path d="M4 16h24"/><path d="M10 6l-4 4 4 4M22 18l4 4-4 4"/>'
+  duelo:'<path d="M4 16h24"/><path d="M10 6l-4 4 4 4M22 18l4 4-4 4"/>',
+  rey:'<path d="M5 24h22l2-14-7 5-6-9-6 9-7-5z"/><path d="M6 28h20"/>',
+  quiensoy:'<circle cx="16" cy="18" r="9"/><rect x="9" y="4" width="14" height="8" rx="2"/><path d="M14 16h.01M18 16h.01M13 21c2 1.5 4 1.5 6 0"/>',
+  impostor:'<path d="M4 12c4-4 20-4 24 0-1 8-5 12-12 12S5 20 4 12z"/><path d="M10 14l3 1M22 14l-3 1"/>'
 };
 const icon=(id,col)=>`<svg viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="${esc(col||"currentColor")}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${ICON[id]||ICON.yonunca}</g></svg>`;
 const BOMB='<svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="56" cy="70" r="40" fill="#0b1630" stroke="#efe8d8" stroke-width="3"/><circle cx="42" cy="55" r="11" fill="#efe8d8" opacity=".16"/><rect x="62" y="22" width="18" height="16" rx="3" transform="rotate(35 71 30)" fill="#c9a46a"/><path d="M78 24q10-14 22-8" fill="none" stroke="#c9a46a" stroke-width="3" stroke-linecap="round"/><g class="spark"><circle cx="101" cy="15" r="11" fill="#e2566b" opacity=".5"/><circle cx="101" cy="15" r="6" fill="#ffd23f"/></g><text x="56" y="80" text-anchor="middle" font-family="Rye,Georgia,serif" font-size="24" fill="#efe8d8">PB</text></svg>';
@@ -2612,7 +2710,7 @@ function setHeader(inGame,name){if(inGame&&window.pbNavPush)pbNavPush();
   back.textContent=inGame?"‹ Volver":"‹ Inicio";
   if(inGame)back.removeAttribute("data-go");else back.setAttribute("data-go","");
 }
-back.addEventListener("click",e=>{if(view!=="sorteo"){e.stopPropagation();toSorteo()}});
+back.addEventListener("click",e=>{if(view!=="sorteo"){e.stopPropagation();if(SALIR&&SALIR())return;SALIR=null;toSorteo()}});
 
 /* Ícono legible sobre el color del juego: azul marino en colores claros, hueso en oscuros */
 function trazo(hex){const m=String(hex||"").replace("#","");if(m.length!==6)return "#0f1d3a";const r=parseInt(m.slice(0,2),16),g=parseInt(m.slice(2,4),16),b=parseInt(m.slice(4,6),16);return (0.299*r+0.587*g+0.114*b)>150?"#0f1d3a":"#efe8d8"}
@@ -2669,7 +2767,7 @@ function showRes(celebrate){
   if(celebrate){const it=$("#jgReel").children[marcado];if(it)it.classList.add("win");confetiJuegos();vib([30,40,60]);blip(990,.12,"sine",.12)}
 }
 function toSorteo(){
-  stopAll();qt.hidden=true;jg.hidden=false;renderSorteo();
+  stopAll();SALIR=null;document.querySelectorAll(".jn-qs").forEach(n=>n.remove());qt.hidden=true;jg.hidden=false;renderSorteo();
   if(curIdx<0){requestAnimationFrame(spin);return}
   setReel(reelOff(N+curIdx));marcar(N+curIdx);showRes(false);
 }
@@ -2677,8 +2775,9 @@ function enter(){stopAll();curIdx=-1;if(window.__qtReset)window.__qtReset();qt.h
 
 /* ================= ABRIR UN JUEGO ================= */
 const RENDER={};
+let SALIR=null; /* los juegos con resumen lo usan para mostrarlo al salir */
 function openGame(id){
-  stopAll();const g=GAMES.find(x=>x.id===id)||GAMES[0];curIdx=GAMES.indexOf(g);actx();
+  stopAll();SALIR=null;const g=GAMES.find(x=>x.id===id)||GAMES[0];curIdx=GAMES.indexOf(g);actx();
   if(g.id==="dedo"){view="dedo";if(window.__qtReset)window.__qtReset();jg.hidden=true;qt.hidden=false;return}
   view=g.id;setHeader(true,g.nombre);body.scrollTop=0;
   body.innerHTML=`<div class="jg-game" style="--gc:${esc(g.color)}"><p class="jg-ins">${esc(g.instruccion||"")}</p><div class="jg-stage" id="jgStage"></div></div>`;
@@ -2880,10 +2979,325 @@ RENDER.duelo=st=>{
   reset();
 };
 
+/* =====================================================================
+   JUEGOS PARA EL GRUPO: El Rey, ¿Quién soy? y El Impostor
+   - Usan la misma lista de jugadores que La Peda (se guarda en el cel).
+   - Al salir muestran un resumen con «Mandar al grupo».
+   ===================================================================== */
+function jnLista(){try{if(typeof players!=="undefined"&&Array.isArray(players))return players}catch(e){}return window.__jnPlayers||(window.__jnPlayers=[])}
+function jnGuardar(){try{if(typeof guardarJugadores==="function")guardarJugadores()}catch(e){}try{if(typeof renderChips==="function")renderChips()}catch(e){}}
+const JN={juego:"",t0:0,tragos:{},sale:{}};
+function jnNuevo(juego){JN.juego=juego;JN.t0=Date.now();JN.tragos={};JN.sale={};jnLista().forEach(p=>{JN.tragos[p]=0})}
+function jnToma(nombre,n){if(!nombre)return;JN.tragos[nombre]=(JN.tragos[nombre]||0)+(n||1)}
+function jnTodos(n,excepto){jnLista().forEach(p=>{if(!excepto||!excepto.includes(p))jnToma(p,n)})}
+const jnUni=n=>n===1?"trago":"tragos";
+function jnConfeti(){if(reduce())return;const cx=innerWidth/2,cy=innerHeight*.42,cols=["#c9a46a","#e4c27a","#efe8d8","#2f5bd3","#ffffff"];
+  for(let i=0;i<46;i++){const e=document.createElement("i");e.className="jgs-conf";const a=Math.random()*Math.PI*2,d=90+Math.random()*170;
+    e.style.cssText=`left:${cx}px;top:${cy}px;background:${cols[i%cols.length]};--x:${Math.cos(a)*d}px;--y:${Math.sin(a)*d-50}px;--r:${Math.random()*540-270}deg;animation-delay:${Math.random()*.12}s`;
+    document.body.appendChild(e);setTimeout(()=>e.remove(),1500)}}
+function jnBarajar(a){a=a.slice();for(let i=a.length-1;i>0;i--){const k=Math.floor(Math.random()*(i+1));[a[i],a[k]]=[a[k],a[i]]}return a}
+
+/* ---- Pantalla de jugadores (la misma lista de La Peda) ---- */
+function jnJugadores(st,{min,max,titulo,sub,boton},listo){
+  function pintar(msg){
+    const L=jnLista(),ok=L.length>=min&&L.length<=max;
+    st.innerHTML=`<div class="jn"><div class="jn-k">${esc(titulo)}</div><p class="jn-sub">${esc(sub)}</p>
+      <div class="jn-add"><input id="jnNom" type="text" maxlength="14" placeholder="Nombre" autocomplete="off" aria-label="Nombre del jugador"><button class="jn-btn jn-oro" type="button" data-j="add">Agregar</button></div>
+      ${msg?`<p class="jn-aviso" role="status">${esc(msg)}</p>`:""}
+      <div class="jn-chips">${L.length?L.map((p,i)=>`<span class="jn-chip">${esc(p)}<button type="button" data-j="del" data-i="${i}" aria-label="Quitar a ${esc(p)}">×</button></span>`).join(""):`<p class="jn-vacio">Aún no hay nadie.</p>`}</div>
+      <p class="jn-cuenta">${L.length} ${L.length===1?"jugador":"jugadores"} · de ${min} a ${max}</p>
+      <button class="jn-btn jn-oro jn-grande" type="button" data-j="ok"${ok?"":" disabled"}>${esc(boton)}</button></div>`;
+    const inp=st.querySelector("#jnNom");inp.onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();agregar()}};
+  }
+  function agregar(){const inp=st.querySelector("#jnNom"),L=jnLista();let n=(inp.value||"").replace(/\s+/g," ").trim();
+    if(!n){inp.focus();return}
+    if(L.length>=20){pintar("Máximo 20 jugadores.");return}
+    if(L.some(p=>p.toLowerCase()===n.toLowerCase())){let k=2;while(L.some(p=>p.toLowerCase()===(n+" "+k).toLowerCase()))k++;n=n+" "+k}
+    L.push(n);jnGuardar();vib(10);pintar();setTimeout(()=>{const i=st.querySelector("#jnNom");if(i)i.focus()},30)}
+  st.onclick=e=>{const b=e.target.closest("[data-j]");if(!b)return;const k=b.dataset.j;
+    if(k==="add")agregar();
+    else if(k==="del"){jnLista().splice(+b.dataset.i,1);jnGuardar();pintar()}
+    else if(k==="ok"){const L=jnLista();if(L.length<min||L.length>max)return;st.onclick=null;listo(L.slice())}};
+  pintar();
+}
+
+/* ---- Resumen al salir (mismo estilo que el resumen de La Peda) ---- */
+function jnResumen(st,extra){
+  releaseWake();SALIR=null;
+  const mins=Math.max(1,Math.round((Date.now()-JN.t0)/60000)),filas=Object.entries(JN.tragos).sort((a,b)=>b[1]-a[1]);
+  const total=filas.reduce((t,[,n])=>t+n,0),mas=filas[0],menos=filas.length?filas[filas.length-1]:null;
+  let h=`<div class="jn jn-res"><div class="jn-k">Fin de la partida</div><h3 class="jn-h">${esc(JN.juego)}</h3>
+    <div class="jn-big"><div><b>${mins}</b><span>${mins===1?"minuto":"minutos"}</span></div><div><b>${total}</b><span>${jnUni(total)}</span></div>${extra&&extra.dato?`<div><b>${esc(extra.dato[0])}</b><span>${esc(extra.dato[1])}</span></div>`:""}</div>`;
+  if(mas&&mas[1]>0)h+=`<div class="jn-award"><span class="em" aria-hidden="true">🥃</span><div><small>El que tomó más</small><b>${esc(mas[0])}</b><p>${mas[1]} ${jnUni(mas[1])}</p></div></div>`;
+  if(menos&&filas.length>1&&menos[0]!==(mas&&mas[0]))h+=`<div class="jn-award"><span class="em" aria-hidden="true">😇</span><div><small>El que se salvó</small><b>${esc(menos[0])}</b><p>${menos[1]===0?"No tomó nada":"Solo "+menos[1]+" "+jnUni(menos[1])}</p></div></div>`;
+  if(extra&&extra.premio)h+=`<div class="jn-award"><span class="em" aria-hidden="true">${extra.premio[0]}</span><div><small>${esc(extra.premio[1])}</small><b>${esc(extra.premio[2])}</b><p>${esc(extra.premio[3]||"")}</p></div></div>`;
+  h+=`<div class="jn-tabla">${filas.map(([p,n])=>`<div><span>${esc(p)}</span><span>${n} ${jnUni(n)}</span></div>`).join("")}</div>
+    <p class="jn-nota">Solo cuentan los tragos que marcaron en la app. Nadie está obligado a tomar.</p>
+    <button class="jn-btn jn-oro jn-grande" type="button" data-r="share">Mandar al grupo</button>
+    <button class="jn-btn jn-linea" type="button" data-r="otra">Otra partida</button>
+    <button class="jn-btn jn-linea" type="button" data-r="salir">Volver a los juegos</button></div>`;
+  st.innerHTML=h;body.scrollTop=0;vib([40,40,120]);
+  const texto=`🥃 ${JN.juego} · Palma Blanca\n${mins} ${mins===1?"minuto":"minutos"} · ${total} ${jnUni(total)}\n`+(mas&&mas[1]>0?`El que tomó más: ${mas[0]} (${mas[1]})\n`:"")+(menos&&filas.length>1&&menos[0]!==(mas&&mas[0])?`El que se salvó: ${menos[0]}\n`:"")+"\n"+filas.map(([p,n])=>`${p}: ${n}`).join("\n");
+  st.onclick=async e=>{const b=e.target.closest("[data-r]");if(!b)return;const k=b.dataset.r;
+    if(k==="share"){try{if(navigator.share){await navigator.share({text:texto});return}}catch(err){if(err&&err.name==="AbortError")return}
+      try{await navigator.clipboard.writeText(texto);toast("Copiado. Pégalo en tu grupo de WhatsApp.")}catch(err){toast("No se pudo copiar en este cel.")}}
+    else if(k==="otra"){st.onclick=null;const g=GAMES.find(x=>x.id===view);openGame(view);if(g)return}
+    else if(k==="salir"){st.onclick=null;toSorteo()}};
+}
+/* Barra de arriba del juego: turno grande y botón para terminar */
+const jnTurno=(quien,detalle)=>`<div class="jn-turno"><div><small>Le toca a</small><b>${esc(quien)}</b>${detalle?`<span>${detalle}</span>`:""}</div><button class="jn-salir" type="button" data-x="fin">Terminar</button></div>`;
+function jnChips(nombres,sel,attr){return `<div class="jn-pick">${nombres.map(p=>`<button type="button" class="jn-pk${sel&&sel.has(p)?" on":""}" ${attr}="${esc(p)}" aria-pressed="${!!(sel&&sel.has(p))}">${esc(p)}</button>`).join("")}</div>`}
+
+/* =====================================================================
+   1. EL REY (baraja de 52 cartas)
+   ===================================================================== */
+const REY_REGLAS={
+  A:["Cascada","Todos empiezan a tomar al mismo tiempo, empezando por quien sacó la carta. Nadie puede parar hasta que pare el de su derecha."],
+  2:["Tú eliges","Elige quién toma."],
+  3:["Tú tomas","Te toca tomar a ti."],
+  4:["Las chicas","Las chicas toman."],
+  5:["Yo nunca nunca","Empiezas tú: di algo que nunca hayas hecho. El que sí lo ha hecho, toma."],
+  6:["Los chicos","Los chicos toman."],
+  7:["Cielo","Todos levanten la mano. El último en levantarla, toma."],
+  8:["Compañero","Elige a alguien: tomará cada vez que tú tomes, hasta que salga otro 8."],
+  9:["Rima","Di una palabra y cada quien dice una que rime. El que falle o se tarde, toma."],
+  10:["Categorías","Di una categoría y cada quien dice algo de ella. El que falle, toma."],
+  J:["Regla nueva","Inventa una regla para todos. Quien no la cumpla, toma."],
+  Q:["Maestro de preguntas","Si alguien te contesta una pregunta que tú hagas, toma. Dura hasta que salga otra Q."],
+  K:["Rey","Sirve un chorrito de Palma Blanca en el vaso del centro. Quien saque el 4º rey se lo toma."]
+};
+RENDER.rey=st=>{
+  const PALOS=[["♠","n"],["♥","r"],["♦","r"],["♣","n"]],RANGOS=["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
+  let J=[],mazo=[],turno=0,reyes=0,comp=null,regla="",maestro="",carta=null,sel=new Set(),fase="sacar",terminado=false;
+  SALIR=()=>{if(terminado||!J.length)return false;fin();return true};
+  jnJugadores(st,{min:2,max:20,titulo:"El Rey",sub:"¿Quién juega? Se pasan el cel: cada quien saca una carta en su turno.",boton:"Revolver la baraja"},L=>{
+    J=L;jnNuevo("El Rey");keepAwake();actx();
+    mazo=jnBarajar(PALOS.flatMap(([p,c])=>RANGOS.map(r=>({r,p,c}))));turno=Math.floor(Math.random()*J.length);pintar();
+  });
+  const quien=()=>J[turno%J.length];
+  function toma(n,nombre){jnToma(nombre,n);if(comp&&comp.de===nombre&&comp.con!==nombre)jnToma(comp.con,n)}
+  function activas(){const a=[];
+    if(comp)a.push(`<li><b>Compañeros:</b> ${esc(comp.con)} toma cada vez que ${esc(comp.de)} toma</li>`);
+    if(regla)a.push(`<li><b>Regla:</b> ${esc(regla)}</li>`);
+    if(maestro)a.push(`<li><b>Maestro de preguntas:</b> ${esc(maestro)}</li>`);
+    return a.length?`<ul class="jn-activas">${a.join("")}</ul>`:""}
+  function pintar(anim){
+    const yo=quien(),info=`Quedan ${mazo.length} cartas · Reyes ${reyes} de 4`;
+    let h=jnTurno(yo,esc(info))+activas();
+    if(fase==="sacar"){
+      h+=`<button type="button" class="jn-mazo" data-k="sacar" aria-label="Sacar carta"><span class="jn-dorso"><b>PB</b><small>Toca para sacar carta</small></span></button>`;
+    }else{
+      const [t,txt]=REY_REGLAS[carta.r],esRey=carta.r==="K";
+      h+=`<div class="jn-carta ${carta.c==="r"?"roja":""}${anim?" voltea":""}" role="img" aria-label="${esc(carta.r+" de "+carta.p+": "+t)}"><span class="esq">${esc(carta.r)}<i>${carta.p}</i></span><b class="rango">${esc(carta.r)}</b><span class="palo">${carta.p}</span><span class="esq ab">${esc(carta.r)}<i>${carta.p}</i></span></div>
+        <div class="jn-regla"><div class="jn-k">${esc(t)}</div><p>${esc(txt)}</p>${esRey?`<p class="jn-rey">Van ${reyes} de 4 reyes${reyes<4?` · faltan ${4-reyes} para el ¡Shot del Rey!`:""}</p>`:""}</div>`;
+      h+=extra();
+      h+=`<button class="jn-btn jn-oro jn-grande" type="button" data-k="sig">Siguiente: le toca a ${esc(J[(turno+1)%J.length])}</button>`;
+    }
+    st.innerHTML=`<div class="jn">${h}</div>`;
+  }
+  function extra(){const r=carta.r,otros=J.filter(p=>p!==quien());
+    if(r==="2")return `<p class="jn-q">¿A quién eliges?</p>${jnChips(otros,sel,"data-un")}`;
+    if(r==="8")return `<p class="jn-q">¿Quién es tu compañero?</p>${jnChips(otros,sel,"data-un")}`;
+    if(r==="J")return `<label class="jn-q" for="jnRegla">Escribe la regla (opcional)</label><input id="jnRegla" class="jn-input" type="text" maxlength="80" placeholder="Ej. prohibido decir «tú»" value="">`;
+    if(r==="3"||r==="A"||r==="K"||r==="Q")return "";
+    return `<p class="jn-q">¿Quién tomó? <span>(opcional, para el resumen)</span></p>${jnChips(J,sel,"data-va")}`;
+  }
+  function sacar(){
+    if(!mazo.length){fin();return}
+    carta=mazo.pop();sel=new Set();fase="ver";const yo=quien();
+    vib(carta.r==="K"?[60,40,60]:20);blip(carta.r==="K"?880:620,.08,"triangle",.12);
+    if(carta.r==="3")toma(1,yo);
+    if(carta.r==="A"){J.forEach(p=>jnToma(p,1))}
+    if(carta.r==="Q")maestro=yo;
+    if(carta.r==="8")comp=null;
+    if(carta.r==="K"){reyes++;if(reyes>=4){reyFinal(yo);return}}
+    pintar(true);
+  }
+  function siguiente(){
+    const r=carta.r,yo=quien();
+    if(r==="2")sel.forEach(p=>toma(1,p));
+    if(r==="8"){const c=[...sel][0];if(c)comp={de:yo,con:c}}
+    if(r==="J"){const v=(st.querySelector("#jnRegla")||{}).value;regla=(v||"").trim()||"(la que inventó "+yo+")"}
+    if(!["2","3","8","A","K","Q","J"].includes(r))sel.forEach(p=>toma(1,p));
+    turno=(turno+1)%J.length;fase="sacar";carta=null;vib(10);pintar();
+  }
+  function reyFinal(yo){
+    toma(1,yo);jnConfeti();vib([120,60,120,60,400],true);blip(523,.18,"triangle",.14);setTimeout(()=>blip(784,.3,"triangle",.14),160);
+    st.innerHTML=`<div class="jn jn-final"><div class="jn-corona" aria-hidden="true">👑</div><div class="jn-k">Salió el 4º rey</div><h3 class="jn-h">¡Shot del Rey!</h3>
+      <p class="jn-sub"><b>${esc(yo)}</b> se toma el vaso del centro.</p><button class="jn-btn jn-oro jn-grande" type="button" data-k="res">Ver resumen</button></div>`;
+    terminado=true;
+  }
+  function fin(){terminado=true;jnResumen(st,{dato:[String(52-mazo.length),"cartas"],premio:reyes>=4?["👑","Se tomó el vaso del rey",quien(),""]:null})}
+  st.addEventListener("click",e=>{
+    const b=e.target.closest("[data-k],[data-un],[data-va],[data-x]");if(!b||!J.length)return;
+    if(b.dataset.x==="fin"){fin();return}
+    if(b.dataset.un!=null){const p=b.dataset.un;sel=sel.has(p)?new Set():new Set([p]);st.querySelectorAll("[data-un]").forEach(x=>{const on=sel.has(x.dataset.un);x.classList.toggle("on",on);x.setAttribute("aria-pressed",on)});vib(8);return}
+    if(b.dataset.va!=null){const p=b.dataset.va;sel.has(p)?sel.delete(p):sel.add(p);b.classList.toggle("on",sel.has(p));b.setAttribute("aria-pressed",sel.has(p));vib(8);return}
+    const k=b.dataset.k;if(k==="sacar")sacar();else if(k==="sig")siguiente();else if(k==="res")fin();
+  });
+};
+
+/* =====================================================================
+   2. ¿QUIÉN SOY? (cel en la frente, 60 segundos)
+   ===================================================================== */
+RENDER.quiensoy=st=>{
+  const CATS=(Array.isArray(D.quienSoy)?D.quienSoy:[]).filter(c=>c&&Array.isArray(c.palabras)&&c.palabras.length);
+  const TODAS=[...new Set(CATS.flatMap(c=>c.palabras))];
+  let J=[],turno=0,cat=null,bolsa=[],ov=null,terminado=false,usarMov=false,rondas=0,aciertosTot={};
+  SALIR=()=>{if(terminado||!J.length)return false;cerrarJuego();fin();return true};
+  jnJugadores(st,{min:2,max:20,titulo:"¿Quién soy?",sub:"¿Quién juega? Cada quien se pone el cel en la frente en su turno.",boton:"Elegir categoría"},L=>{J=L;jnNuevo("¿Quién soy?");J.forEach(p=>aciertosTot[p]=0);turno=0;elegirCat()});
+  function elegirCat(){
+    st.innerHTML=`<div class="jn"><div class="jn-k">Elige categoría</div><div class="jn-cats">${CATS.map((c,i)=>`<button class="jn-btn jn-cat" type="button" data-c="${i}">${esc(c.nombre)}</button>`).join("")}<button class="jn-btn jn-cat jn-oro" type="button" data-c="mezcla">Mezcla</button></div></div>`;
+  }
+  function palabra(){if(!bolsa.length)bolsa=jnBarajar(cat==="mezcla"?TODAS:CATS[cat].palabras);return bolsa.pop()}
+  function previa(){
+    const yo=J[turno%J.length],pideMov=typeof DeviceMotionEvent!=="undefined"&&typeof DeviceMotionEvent.requestPermission==="function";
+    st.innerHTML=`<div class="jn">${jnTurno(yo,esc((cat==="mezcla"?"Mezcla":CATS[cat].nombre)+" · ronda "+(rondas+1)))}
+      <div class="jn-instr"><p><b>${esc(yo)}</b>, ponte el cel en la frente con la pantalla hacia tus amigos, acostado de lado.</p>
+      <p>Inclínalo hacia <b>abajo</b> si adivinaste y hacia <b>arriba</b> para pasar. También puedes tocar: <b>derecha = correcto</b>, <b>izquierda = paso</b>.</p></div>
+      ${pideMov&&!usarMov?`<button class="jn-btn jn-linea jn-grande" type="button" data-q="mov">Activar movimiento</button>`:""}
+      <button class="jn-btn jn-oro jn-grande" type="button" data-q="go">¡Listo! Empezar</button>
+      <button class="jn-btn jn-linea" type="button" data-q="cat">Cambiar categoría</button></div>`;
+  }
+  async function pedirMov(){
+    try{if(typeof DeviceMotionEvent!=="undefined"&&typeof DeviceMotionEvent.requestPermission==="function"){const r=await DeviceMotionEvent.requestPermission();usarMov=r==="granted"}else usarMov="DeviceMotionEvent" in window}catch(e){usarMov=false}
+    toast(usarMov?"Movimiento activado.":"No se pudo activar el movimiento. Usa los toques: derecha = correcto, izquierda = paso.");previa();
+  }
+  function cerrarJuego(){if(ov){ov._fin&&ov._fin();ov.remove();ov=null}try{if(document.fullscreenElement)document.exitFullscreen()}catch(e){}try{screen.orientation&&screen.orientation.unlock&&screen.orientation.unlock()}catch(e){}}
+  async function jugar(){
+    const yo=J[turno%J.length];keepAwake();actx();
+    /* El permiso de movimiento se pide aquí (el toque en «Empezar» lo permite en iPhone y Chrome) */
+    if(!usarMov){try{if(typeof DeviceMotionEvent!=="undefined"&&typeof DeviceMotionEvent.requestPermission==="function")usarMov=(await DeviceMotionEvent.requestPermission())==="granted";else usarMov="DeviceMotionEvent" in window}catch(e){usarMov=false}}
+    ov=document.createElement("div");ov.className="jn-qs";ov.setAttribute("role","dialog");ov.setAttribute("aria-modal","true");ov.setAttribute("aria-label","¿Quién soy?");
+    ov.innerHTML=`<div class="jn-qs-in"><div class="jn-qs-top"><span class="jn-qs-t" id="qsT">60</span><span class="jn-qs-n" id="qsN">0 ✓</span><button type="button" class="jn-qs-x" data-q="x" aria-label="Terminar turno">✕</button></div>
+      <div class="jn-qs-w" id="qsW" aria-live="assertive">3</div>
+      <div class="jn-qs-z"><button type="button" class="jn-qs-l" data-q="paso">PASO</button><button type="button" class="jn-qs-r" data-q="ok">CORRECTO</button></div></div>`;
+    document.body.appendChild(ov);
+    try{if(ov.requestFullscreen)await ov.requestFullscreen().catch(()=>{});if(screen.orientation&&screen.orientation.lock)await screen.orientation.lock("landscape").catch(()=>{})}catch(e){}
+    const girar=()=>{ov.classList.toggle("rot",innerHeight>innerWidth)};girar();addEventListener("resize",girar);
+    const W=ov.querySelector("#qsW"),Tt=ov.querySelector("#qsT"),Nn=ov.querySelector("#qsN");
+    const ok=[],pasa=[];let actual="",vivo=false,armado=true,fin=0,tic=null;
+    /* En iPhone el sensor da el signo al revés que en Android */
+    const iOS=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+    function marcar(bien){if(!vivo||!actual)return;(bien?ok:pasa).push(actual);vivo=false;Nn.textContent=ok.length+" ✓";
+      ov.classList.remove("bien","pasa");void ov.offsetWidth;ov.classList.add(bien?"bien":"pasa");W.textContent=bien?"¡Correcto!":"Paso";
+      vib(bien?[40,30,40]:60);blip(bien?988:330,.12,bien?"triangle":"square",.12);
+      later(()=>{if(!ov)return;ov.classList.remove("bien","pasa");actual=palabra();W.textContent=actual;vivo=true},650)}
+    const mov=e=>{const g=e.accelerationIncludingGravity;if(!g||g.z==null)return;const z=iOS?-g.z:g.z;
+      if(Math.abs(z)<4){armado=true;return}if(!armado||!vivo)return;
+      if(z<-6.5){armado=false;marcar(true)}else if(z>6.5){armado=false;marcar(false)}};
+    if(usarMov)addEventListener("devicemotion",mov);
+    ov._fin=()=>{clearInterval(tic);removeEventListener("devicemotion",mov);removeEventListener("resize",girar)};
+    ov.onclick=e=>{const b=e.target.closest("[data-q]");if(!b)return;const k=b.dataset.q;if(k==="ok")marcar(true);else if(k==="paso")marcar(false);else if(k==="x"){terminarTurno()}};
+    /* 3-2-1 */
+    let n=3;W.textContent=n;blip(660,.1,"sine",.12);vib(20);
+    const cd=setInterval(()=>{n--;if(!ov){clearInterval(cd);return}if(n>0){W.textContent=n;blip(660,.1,"sine",.12);vib(20)}else{clearInterval(cd);empezar()}},1000);T.push(cd);
+    function empezar(){actual=palabra();W.textContent=actual;vivo=true;blip(990,.2,"triangle",.14);vib(80);fin=Date.now()+60000;
+      tic=setInterval(()=>{const s=Math.max(0,Math.ceil((fin-Date.now())/1000));Tt.textContent=s;Tt.classList.toggle("poco",s<=10);if(s<=5&&s>0)blip(700,.05,"square",.08);if(s<=0)terminarTurno()},250)}
+    function terminarTurno(){if(!ov)return;vivo=false;clearInterval(tic);clearInterval(cd);
+      if(actual&&!ok.includes(actual)&&!pasa.includes(actual)&&fin)pasa.push(actual);
+      vib([300,100,300],true);blip(220,.5,"sawtooth",.14);cerrarJuego();resultado(yo,ok,pasa)}
+  }
+  function resultado(yo,ok,pasa){
+    rondas++;aciertosTot[yo]=(aciertosTot[yo]||0)+ok.length;jnToma(yo,pasa.length);
+    const reparte=ok.length>=8,sigue=J[(turno+1)%J.length];
+    st.innerHTML=`<div class="jn"><div class="jn-k">Se acabó el tiempo</div><h3 class="jn-h">${esc(yo)}: ${ok.length} ${ok.length===1?"acierto":"aciertos"}</h3>
+      <div class="jn-regla"><p>${pasa.length?`<b>${esc(yo)}</b> toma <b>${pasa.length}</b> ${jnUni(pasa.length)} (uno por cada palabra que pasó).`:`<b>${esc(yo)}</b> no pasó ninguna: no toma.`}${reparte?` Además acertó 8 o más: <b>reparte 3 tragos</b>.`:""}</p></div>
+      <div class="jn-listas"><div><div class="jn-k ok">Acertadas</div><ul>${ok.map(w=>`<li>${esc(w)}</li>`).join("")||"<li class='v'>Ninguna</li>"}</ul></div><div><div class="jn-k pa">Pasadas</div><ul>${pasa.map(w=>`<li>${esc(w)}</li>`).join("")||"<li class='v'>Ninguna</li>"}</ul></div></div>
+      <button class="jn-btn jn-oro jn-grande" type="button" data-q="sig">Siguiente: le toca a ${esc(sigue)}</button>
+      <button class="jn-btn jn-linea" type="button" data-q="fin">Terminar y ver resumen</button></div>`;
+    body.scrollTop=0;
+  }
+  function fin(){terminado=true;const top=Object.entries(aciertosTot).sort((a,b)=>b[1]-a[1])[0];
+    jnResumen(st,{dato:[String(rondas),rondas===1?"turno":"turnos"],premio:top&&top[1]>0?["🧠","El que más adivinó",top[0],top[1]+" "+(top[1]===1?"palabra":"palabras")]:null})}
+  st.addEventListener("click",e=>{const b=e.target.closest("[data-c],[data-q],[data-x]");if(!b||!J.length)return;
+    if(b.dataset.x==="fin"){fin();return}
+    if(b.dataset.c!=null){cat=b.dataset.c==="mezcla"?"mezcla":+b.dataset.c;bolsa=[];vib(10);previa();return}
+    const k=b.dataset.q;if(k==="mov")pedirMov();else if(k==="go")jugar();else if(k==="cat")elegirCat();else if(k==="sig"){turno=(turno+1)%J.length;previa()}else if(k==="fin")fin();
+  });
+};
+
+/* =====================================================================
+   3. EL IMPOSTOR
+   ===================================================================== */
+RENDER.impostor=st=>{
+  const CATS=(Array.isArray(D.impostor)?D.impostor:[]).filter(c=>c&&Array.isArray(c.palabras)&&c.palabras.length);
+  const TODAS=[...new Set(CATS.flatMap(c=>c.palabras))];
+  let J=[],cat=null,dos=false,imps=[],pal="",idx=0,visto=false,terminado=false,rondas=0,atrapados=0,bolsa=[];
+  SALIR=()=>{if(terminado||!J.length)return false;fin();return true};
+  jnJugadores(st,{min:3,max:12,titulo:"El Impostor",sub:"¿Quién juega? De 3 a 12 personas.",boton:"Elegir categoría"},L=>{J=L;jnNuevo("El Impostor");elegirCat()});
+  function elegirCat(){
+    st.innerHTML=`<div class="jn"><div class="jn-k">Elige categoría</div><div class="jn-cats">${CATS.map((c,i)=>`<button class="jn-btn jn-cat" type="button" data-c="${i}">${esc(c.nombre)}</button>`).join("")}<button class="jn-btn jn-cat jn-oro" type="button" data-c="mezcla">Mezcla</button></div>
+      ${J.length>=7?`<label class="jn-sw"><input type="checkbox" id="jnDos"${dos?" checked":""}><span>Jugar con 2 impostores</span></label>`:""}</div>`;
+  }
+  function nuevaRonda(){
+    if(!bolsa.length)bolsa=jnBarajar(cat==="mezcla"?TODAS:CATS[cat].palabras);pal=bolsa.pop();
+    imps=jnBarajar(J).slice(0,dos&&J.length>=7?2:1);idx=0;pasar();
+  }
+  function pasar(){visto=false;const p=J[idx];
+    st.innerHTML=`<div class="jn jn-centro"><div class="jn-k">Reparto secreto · ${idx+1} de ${J.length}</div><h3 class="jn-h">Pásale el cel a<br><span class="jn-nom">${esc(p)}</span></h3>
+      <p class="jn-sub">Que nadie más vea la pantalla.</p><button class="jn-btn jn-oro jn-grande" type="button" data-i="soy">Soy ${esc(p)}</button></div>`}
+  function verPapel(){const p=J[idx],soyImp=imps.includes(p);
+    st.innerHTML=`<div class="jn jn-centro"><div class="jn-k">${esc(p)}</div>
+      <button type="button" class="jn-ver" id="jnVer" aria-label="Mantén presionado para ver tu papel"><span class="tapa">Mantén presionado<br>para ver tu papel</span><span class="papel">${soyImp?`<b class="imp">Eres el IMPOSTOR</b><small>Disimula: escucha las pistas y adivina la palabra.</small>`:`<small>La palabra secreta es</small><b>${esc(pal)}</b>`}</span></button>
+      <p class="jn-sub">Al soltar se oculta.</p><button class="jn-btn jn-oro jn-grande" type="button" data-i="listo" disabled>${idx<J.length-1?"Listo, pásalo":"Listo, empezar las pistas"}</button></div>`;
+    const v=st.querySelector("#jnVer"),bl=st.querySelector('[data-i="listo"]');
+    const on=e=>{e.preventDefault();v.classList.add("on");visto=true;bl.disabled=false;vib(15)},off=()=>v.classList.remove("on");
+    v.addEventListener("pointerdown",on);["pointerup","pointercancel","pointerleave"].forEach(t=>v.addEventListener(t,off));
+    v.addEventListener("contextmenu",e=>e.preventDefault());
+    v.addEventListener("keydown",e=>{if(e.key===" "||e.key==="Enter")on(e)});v.addEventListener("keyup",off);
+  }
+  function pistas(){const orden=jnBarajar(J);
+    st.innerHTML=`<div class="jn"><div class="jn-k">Ronda de pistas</div><h3 class="jn-h">Cada quien dice una palabra en voz alta</h3>
+      <p class="jn-sub">Una sola palabra o pista sobre la palabra secreta, en este orden:</p>
+      <ol class="jn-orden">${orden.map(p=>`<li>${esc(p)}</li>`).join("")}</ol>
+      <button class="jn-btn jn-oro jn-grande" type="button" data-i="votar">Votar</button>
+      <button class="jn-btn jn-linea" type="button" data-i="pistas">Otra ronda de pistas</button>
+      <button class="jn-salir abajo" type="button" data-x="fin">Terminar</button></div>`}
+  let voto=null;
+  function votar(){voto=null;
+    st.innerHTML=`<div class="jn"><div class="jn-k">Votación</div><h3 class="jn-h">¿Quién es el impostor?</h3><p class="jn-sub">Pónganse de acuerdo y elijan a una persona.</p>
+      ${jnChips(J,null,"data-v")}<button class="jn-btn jn-oro jn-grande" type="button" data-i="revelar" disabled>Revelar</button></div>`}
+  function revelar(){
+    const ok=imps.includes(voto);rondas++;
+    st.innerHTML=`<div class="jn jn-centro"><div class="jn-k">Votaron por</div><h3 class="jn-h">${esc(voto)}</h3><div class="jn-redoble" aria-hidden="true"><i></i><i></i><i></i></div><p class="jn-sub" role="status">Y el impostor es…</p></div>`;
+    let k=0;const rr=setInterval(()=>{blip(120+(k%2)*40,.06,"square",.1);vib(15);if(++k>16)clearInterval(rr)},110);T.push(rr);
+    later(()=>{clearInterval(rr);ok?atrapado():escapo()},reduce()?600:2300);
+  }
+  function atrapado(){atrapados++;vib([80,40,80,40,240],true);
+    st.innerHTML=`<div class="jn jn-centro jn-bien"><div class="jn-k">¡Lo atraparon!</div><h3 class="jn-h">${esc(voto)} era ${imps.length>1?"uno de los impostores":"el impostor"}</h3>
+      ${imps.length>1?`<p class="jn-sub">Los impostores eran: <b>${imps.map(esc).join(" y ")}</b>.</p>`:""}
+      <div class="jn-regla"><p><b>${esc(voto)}</b> toma 2… pero tiene una oportunidad: que diga en voz alta cuál cree que es la palabra secreta.</p></div>
+      <button class="jn-btn jn-oro jn-grande" type="button" data-i="palabra">Ver la palabra</button></div>`}
+  function mostrarPalabra(){
+    st.innerHTML=`<div class="jn jn-centro"><div class="jn-k">La palabra era</div><h3 class="jn-h jn-pal">${esc(pal)}</h3><p class="jn-sub">¿${esc(voto)} la adivinó?</p>
+      <button class="jn-btn jn-oro jn-grande" type="button" data-i="si">Sí, la adivinó: se salva</button><button class="jn-btn jn-linea jn-grande" type="button" data-i="no">No la adivinó</button></div>`}
+  function final(txt){
+    st.innerHTML=`<div class="jn jn-centro"><div class="jn-regla"><p>${txt}</p></div><p class="jn-sub">La palabra era <b>${esc(pal)}</b>.</p>
+      <button class="jn-btn jn-oro jn-grande" type="button" data-i="otra">Otra ronda</button><button class="jn-btn jn-linea" type="button" data-x="fin">Terminar y ver resumen</button></div>`}
+  function escapo(){vib([300,80,300],true);
+    jnTodos(1,imps);
+    final(`<b>No lo atraparon.</b> ${imps.length>1?"Los impostores eran":"El impostor era"} <b>${imps.map(esc).join(" y ")}</b>. Todos los demás toman 1 y ${imps.length>1?"cada impostor reparte":"el impostor reparte"} 3 tragos.`)}
+  function fin(){terminado=true;jnResumen(st,{dato:[String(rondas),rondas===1?"ronda":"rondas"],premio:rondas?["🕵️","Impostores atrapados",atrapados+" de "+rondas,""]:null})}
+  st.addEventListener("click",e=>{const b=e.target.closest("[data-c],[data-i],[data-v],[data-x]");if(!b||!J.length)return;
+    if(b.dataset.x==="fin"){fin();return}
+    if(b.dataset.c!=null){cat=b.dataset.c==="mezcla"?"mezcla":+b.dataset.c;dos=!!(st.querySelector("#jnDos")||{}).checked;bolsa=[];keepAwake();actx();vib(10);nuevaRonda();return}
+    if(b.dataset.v!=null){voto=b.dataset.v;st.querySelectorAll("[data-v]").forEach(x=>{const on=x.dataset.v===voto;x.classList.toggle("on",on);x.setAttribute("aria-pressed",on)});st.querySelector('[data-i="revelar"]').disabled=false;vib(8);return}
+    const k=b.dataset.i;
+    if(k==="soy")verPapel();
+    else if(k==="listo"){if(!visto)return;idx++;if(idx<J.length)pasar();else pistas()}
+    else if(k==="pistas")pistas();else if(k==="votar")votar();else if(k==="revelar")revelar();
+    else if(k==="palabra")mostrarPalabra();
+    else if(k==="si"){jnTodos(1,[voto]);final(`<b>${esc(voto)} se salvó</b>: adivinó la palabra. Todos los demás toman 1.`)}
+    else if(k==="no"){jnToma(voto,2);final(`<b>${esc(voto)}</b> no adivinó: toma 2.`)}
+    else if(k==="otra")nuevaRonda();
+  });
+};
+
 /* ---- Entrar y salir de la sección ---- */
 function sync(){
   if((location.hash||"")==="#quien")enter();
-  else{stopAll();view="off";if(qt&&!qt.hidden){if(window.__qtReset)window.__qtReset();qt.hidden=true;jg.hidden=false}}
+  else{stopAll();SALIR=null;document.querySelectorAll(".jn-qs").forEach(n=>n.remove());view="off";if(qt&&!qt.hidden){if(window.__qtReset)window.__qtReset();qt.hidden=true;jg.hidden=false}}
 }
 window.addEventListener("hashchange",sync);
 document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden"&&bombOn){stopAll();if(view==="bomba")openGame("bomba")}});
