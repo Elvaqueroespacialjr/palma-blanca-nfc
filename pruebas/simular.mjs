@@ -2,7 +2,7 @@
 //  PALMA BLANCA NFC · Simulaciones automáticas de personas usando la app
 // ---------------------------------------------------------------------
 //  Cambia este número para correr más (por ejemplo 1000):
-export const N_SIMULACIONES = Number(process.env.N_SIMULACIONES || 100);
+export const N_SIMULACIONES = Number(process.env.N_SIMULACIONES || 1000);
 // ---------------------------------------------------------------------
 //  Cómo correrlo (desde la carpeta palma-netlify):
 //    1) ./dev-local.sh                      (servidor de prueba en :8888)
@@ -47,7 +47,7 @@ const CELULARES = {
 };
 
 /* ---------- Perfiles (porcentajes del total) ---------- */
-const PERFILES = [["Curiosa de drinks", 0.30], ["Pre con amigos", 0.25], ["En el antro", 0.20], ["Rápido", 0.15], ["Botella premiada", 0.10]];
+const PERFILES = [["Drinks", 0.25], ["Peda en casa", 0.20], ["A ver qué te toca", 0.20], ["Antro", 0.15], ["Rápido", 0.10], ["Botella premiada", 0.10]];
 const NOMBRES = ["Ana", "Beto", "Caro", "Dani", "Eli", "Fer", "Gaby", "Hugo", "Iván", "Jime", "Karla", "Luis", "Majo", "Nico", "Oli", "Pau", "Quique", "Rosa", "Sofi", "Toño"];
 
 function plan(n) {
@@ -81,8 +81,8 @@ async function sesion(browser, s, estadoPrevio, ctxDatos) {
     id: s.id, perfil: s.perfil, celular: s.celular, regresa: !!estadoPrevio,
     carga_dcl_ms: null, carga_total_ms: null, duracion_ms: 0, acciones: 0,
     recorrido: [], abandono: "", errores: [], ruido_consola: 0, desbordes: [], tapados: [], atorados: [],
-    slot: [], ruleta: [], juegos_ruleta: [], quiz: null, peda: null, dedo: [], premio: null, rarezas: [],
-    embudo: { quiz_inicio: false, quiz_fin: false, peda_inicio: false, peda_resumen: false, antro_inicio: false, antro_edad: false, antro_ruleta: false }
+    slot: [], ruleta: [], juegos_ruleta: [], juegos: [], quiz: null, peda: null, cita: null, dedo: [], premio: null, rarezas: [], compartio: false,
+    embudo: { quiz_inicio: false, quiz_fin: false, peda_inicio: false, peda_resumen: false, cita_inicio: false, cita_resultados: false, antro_inicio: false, antro_edad: false, antro_ruleta: false }
   };
   const ctx = await browser.newContext({ ...CELULARES[s.celular], locale: "es-MX", timezoneId: "America/Mexico_City", permissions: [], storageState: estadoPrevio || undefined });
   /* El menú de compartir del celular se simula: cuenta cuántas veces se abrió */
@@ -154,7 +154,7 @@ async function sesion(browser, s, estadoPrevio, ctxDatos) {
     }
 
     /* ======================= PERFILES ======================= */
-    if (s.perfil === "Curiosa de drinks") {
+    if (s.perfil === "Drinks") {
       await espera(); await hacer("entrar a Drinks", () => irA("drinks"));
       const giros = entre(r, 1, 3);
       for (let i = 0; i < giros; i++) {
@@ -203,7 +203,7 @@ async function sesion(browser, s, estadoPrevio, ctxDatos) {
       }
     }
 
-    else if (s.perfil === "Pre con amigos") {
+    else if (s.perfil === "Peda en casa" && !prob(r, 0.35)) {
       await espera(); await hacer("entrar a La Peda", () => irA("peda"));
       R.embudo.peda_inicio = true;
       await espera(); await hacer("empezar", () => tocar("#intro .btn"));
@@ -237,7 +237,7 @@ async function sesion(browser, s, estadoPrevio, ctxDatos) {
       }
       R.peda = { modo, jugadores: enLista.length, cartas: total, porJugador, sinCarta: Object.values(porJugador).filter(v => v === 0).length };
       /* La mitad también juega «¿A ver qué te toca?» */
-      if (prob(r, 0.5) && !abandono) {
+      if (false && !abandono) {
         await espera(); await hacer("ir a inicio", aInicio);
         await espera(); await hacer("entrar a ¿A ver qué te toca?", () => irA("quien"));
         const giros = entre(r, 1, 3);
@@ -276,7 +276,7 @@ async function sesion(browser, s, estadoPrevio, ctxDatos) {
       }
     }
 
-    else if (s.perfil === "En el antro") {
+    else if (s.perfil === "Antro") {
       await espera(); await hacer("entrar a Modo Antro", () => irA("antro"));
       R.embudo.antro_inicio = true;
       await dormir(800);
@@ -290,7 +290,8 @@ async function sesion(browser, s, estadoPrevio, ctxDatos) {
       const AD = await page.evaluate(() => window.ANTRO_DATA).catch(() => null);
       const titulos = {};
       if (AD) { for (const c of AD.casillas) { titulos[c.titulo] = c.id; if (c.sinAlcohol?.titulo) titulos[c.sinAlcohol.titulo] = c.id; } titulos[AD.ronda.titulo] = "regalo"; if (AD.ronda.sinAlcohol?.titulo) titulos[AD.ronda.sinAlcohol.titulo] = "regalo"; }
-      const giros = okRuleta ? entre(r, 1, 6) : 0;
+      const muchas = prob(r, 0.1); if (muchas) R.rarezas.push("giró muchas veces seguidas");
+      const giros = okRuleta ? (muchas ? entre(r, 12, 25) : entre(r, 1, 6)) : 0;
       for (let i = 0; i < giros; i++) {
         await espera();
         const estado = await page.evaluate(() => { try { return JSON.parse(localStorage.getItem("tomala_pb_v1") || "{}"); } catch (e) { return {}; } });
@@ -329,7 +330,139 @@ async function sesion(browser, s, estadoPrevio, ctxDatos) {
         if (ok) seccion("antro/mesas"); else break;
       }
       await espera();
-      if (await hacer("gira la botella", async () => { await tocar('#tm-tabs [data-go="inicio"]'); await tocar('#tm [data-go="botella"]'); await visible("#tm #girab"); await tocar("#tm #girab"); await visible("#tm #botres .carta", 9000); })) seccion("antro/botella");
+      /* Cierra cualquier ventana que haya quedado abierta (avisos de mesa vs mesa, etc.) */
+      await page.evaluate(() => { document.querySelectorAll("#tm .aviso [data-a], #tm-modal:not([hidden]) button").forEach((b, i) => { if (i === 0) b.click(); }); }).catch(() => {});
+      if (await hacer("abrir la botella", async () => { await tocar('#tm-tabs [data-go="inicio"]'); await tocar('#tm [data-go="botella"]'); await visible("#tm #girab"); })
+        && await hacer("gira la botella", async () => { await tocar("#tm #girab"); await visible("#tm #botres .carta", 9000); })) seccion("antro/botella");
+    }
+
+    else if (s.perfil === "Peda en casa") {   /* 35%: Cupido en la Mesa (todos) o Cita a Ciegas (parejas) */
+      await espera(); await hacer("entrar a La Peda", () => irA("peda"));
+      await espera(); await hacer("empezar", () => tocar("#intro .btn"));
+      const parejas = prob(r, 0.5), nombres = barajar(r, NOMBRES).slice(0, entre(r, 2, 8));
+      R.embudo.cita_inicio = true;
+      await page.evaluate(() => { try { players.length = 0; guardarJugadores(); } catch (e) {} }).catch(() => {});
+      for (const nm of nombres) { await espera(300, 1000); await hacer("agregar jugador", async () => { await page.fill("#nameInput", nm); await tocar("#players .addbar button"); }); }
+      await espera(); await hacer("elegir modo", () => tocar("#toModes"));
+      if (parejas) {
+        await hacer("abrir Cita a Ciegas", async () => { await tocar("#modes .m-bd"); await visible("#bdElla"); });
+        const np = Math.max(1, Math.floor(nombres.length / 2));
+        for (let i = 0; i < np; i++) { await espera(300, 1200); await hacer("registrar pareja", async () => { await page.fill("#bdElla", nombres[2 * i] || "Ana"); await page.fill("#bdEl", nombres[2 * i + 1] || "Beto"); await tocar('[data-bd="agregar"]'); }); }
+        await hacer("empezar cita", async () => { await tocar("#bdStart"); await visible("#bdgame.active, #bdgame", 5000); });
+      } else await hacer("abrir Cupido en la Mesa", async () => { await tocar("#modes .m-bd2"); await page.waitForFunction(() => document.querySelector("#lp .screen.active")?.id === "bdgame", null, { timeout: 5000 }); });
+      const cartas = entre(r, 10, 40); let jugadas = 0;
+      for (let k = 0; k < cartas; k++) {
+        await espera(400, 2500);
+        const ok = await hacer("siguiente carta (cita)", async () => {
+          await page.waitForFunction(() => [...document.querySelectorAll("#bdActs button")].some(b => b.offsetParent && !/Terminar/.test(b.textContent)), null, { timeout: 9000 }).catch(() => {});
+          const b = page.locator('#bdActs button:visible').filter({ hasNotText: /Terminar/ });
+          const prefer = page.locator('#bdActs [data-bd="sig"]:visible, #bdActs [data-bd="coinc"]:visible, #bdActs [data-bd="salud"]:visible, #bdActs [data-bd="tomaron"]:visible, #bdActs [data-bd="contar"]:visible');
+          if (await prefer.count()) await tocar(prefer.first()); else if (await b.count()) await tocar(b.first()); else throw new Error("sin botones");
+        });
+        if (!ok) break; jugadas++;
+      }
+      await espera(); await hacer("terminar cita", () => tocar('[data-bd="terminar"]'));
+      for (let k = 0; k < 25; k++) {   /* cartas finales y fotos: avanzar sin foto hasta los resultados */
+        const act = await page.evaluate(() => document.querySelector("#lp .screen.active")?.id).catch(() => "");
+        if (act === "bdres") break;
+        await espera(300, 1200);
+        await hacer("avanzar al final (cita)", async () => {
+          if ((await page.evaluate(() => document.querySelector("#lp .screen.active")?.id).catch(() => "")) === "bdres") return;
+          if (act === "bdfoto") { await tocar('#bdfoto [data-bd="foto-saltar"], #bdfoto [data-bd="foto-ok"]'); return; }
+          await page.waitForFunction(() => [...document.querySelectorAll("#bdActs button")].some(b => b.offsetParent && !/Terminar/.test(b.textContent)), null, { timeout: 9000 }).catch(() => {});
+          await tocar(page.locator('#bdActs button:visible').filter({ hasNotText: /Terminar/ }).first());
+        });
+      }
+      R.embudo.cita_resultados = (await page.evaluate(() => document.querySelector("#lp .screen.active")?.id).catch(() => "")) === "bdres";
+      R.cita = { modo: parejas ? "Cita a Ciegas" : "Cupido en la Mesa", jugadores: nombres.length, cartas: jugadas, resultados: R.embudo.cita_resultados };
+    }
+
+    else if (s.perfil === "A ver qué te toca") {
+      await espera(); await hacer("entrar a ¿A ver qué te toca?", () => irA("quien"));
+      const n = entre(r, 1, 3), elegidos = barajar(r, ["La Bomba", "El Rey", "¿Quién soy?", "El Impostor", "El Dedo"]).slice(0, n);
+      for (let gi = 0; gi < elegidos.length; gi++) {
+        const juego = elegidos[gi], J = { juego, empezo: false, termino: false, pasos: 0, ms: 0, explotó: 0 }, t0j = Date.now();
+        await espera();
+        if (gi === 0 && prob(r, 0.5)) await hacer("girar ruleta de juegos", async () => {
+          const t = Date.now(); if (await page.locator("#jgOtro").isVisible().catch(() => false)) await tocar("#jgOtro"); else await tocar("#jgMachine");
+          await page.waitForFunction(() => { const e = document.querySelector("#jgRes"); return e && !e.hidden; }, null, { timeout: TIMEOUT_ACCION });
+          const res = (await page.textContent("#jgH")).trim(); R.juegos_ruleta.push({ antes: R.juegos_ruleta.at(-1)?.resultado ?? null, resultado: res, ms: Date.now() - t });
+        });
+        const ok = await hacer("abrir " + juego, async () => {
+          if (!(await page.locator("#jgMenuBtn").isVisible().catch(() => false))) await aInicio().then(() => irA("quien"));
+          await tocar("#jgMenuBtn"); await tocar(page.locator("#jgMenu [data-gi]", { hasText: juego }).first());
+        });
+        if (!ok) { R.juegos.push(J); continue; }
+        J.empezo = true;
+        if (juego === "El Dedo") {
+          const cdp = await ctx.newCDPSession(page);
+          for (let q = 0, rondas = entre(r, 1, 3); q < rondas; q++) {
+            await espera();
+            const dedos = entre(r, 2, 6), antes = prob(r, 0.12);
+            await hacer("poner " + dedos + " dedos", async () => {
+              const pad = await page.locator("#qtPad").boundingBox();
+              const pts = Array.from({ length: dedos }, (_, i) => ({ x: pad.x + pad.width * (0.15 + 0.7 * ((i % 3) / 2)), y: pad.y + pad.height * (0.25 + 0.5 * Math.floor(i / 3)), id: i + 1 }));
+              const puestos = []; for (const p of pts) { puestos.push(p); await cdp.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: puestos.map(x => ({ x: x.x, y: x.y, id: x.id })) }); await dormir(100); }
+              if (antes) { await dormir(900); R.rarezas.push("quitó el dedo antes de tiempo"); }
+              else await page.waitForFunction(() => document.querySelector("#qtPad .qt-dot.win"), null, { timeout: 6000 });
+              const g = await page.evaluate(() => { const w = document.querySelector("#qtPad .qt-dot.win"); if (!w) return null; const b = w.getBoundingClientRect(); return { x: b.left + b.width / 2, y: b.top + b.height / 2 }; });
+              let gana = -1; if (g) { let best = 1e9; pts.forEach((p, i) => { const dd = (p.x - g.x) ** 2 + (p.y - g.y) ** 2; if (dd < best) { best = dd; gana = i; } }); }
+              R.dedo.push({ dedos, ganador: gana, quito_antes: antes, eligio: gana >= 0 });
+              await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] }); await dormir(1300);
+            });
+            J.pasos++;
+          }
+          J.termino = R.dedo.some(d => d.eligio);
+          await hacer("salir de El Dedo", async () => { await page.evaluate(() => document.querySelector("#jgBack")?.click()); await dormir(500); });
+        } else {
+          /* Pantalla de jugadores (la misma lista de La Peda) */
+          if (await page.locator("#jnNom").isVisible().catch(() => false)) {
+            const quiere = juego === "El Impostor" ? entre(r, 3, 8) : entre(r, 2, 8);
+            for (const nm of barajar(r, NOMBRES).slice(0, quiere)) {
+              if (await page.locator('[data-j="ok"]:not([disabled])').count() && prob(r, 0.5)) break;
+              await espera(200, 900);
+              if (prob(r, 0.05)) { R.rarezas.push("agregó nombre vacío"); await hacer("nombre vacío", async () => { await page.fill("#jnNom", ""); await tocar('[data-j="add"]'); }); }
+              await hacer("agregar jugador", async () => { await page.fill("#jnNom", nm); await tocar('[data-j="add"]'); });
+            }
+            await hacer("listo jugadores", () => tocar('[data-j="ok"]:not([disabled])'));
+          }
+          const PRIO = {
+            "La Bomba": ['[data-k="go"]', '[data-k="again"]', '[data-k="pass"]'],
+            "El Rey": ['[data-k="sacar"]', '.jn-pk', '[data-k="sig"]', '[data-k="res"]'],
+            "¿Quién soy?": ['[data-q="cat"]', '[data-q="go"]', '[data-q="ok"]', '[data-q="paso"]', '[data-q="sig"]'],
+            "El Impostor": ['[data-c]', '[data-i="soy"]', '#jnVer', '[data-i="listo"]:not([disabled])', '[data-i="votar"]', '.jn-pk', '[data-i="revelar"]:not([disabled])', '[data-i="si"]', '[data-i="no"]', '[data-i="pistas"]', '[data-i="otra"]', '[data-i="palabra"]']
+          }[juego];
+          const pasos = juego === "La Bomba" ? entre(r, 2, 6) : entre(r, 10, 35);
+          for (let k = 0; k < pasos; k++) {
+            await espera(juego === "¿Quién soy?" ? 300 : 400, juego === "¿Quién soy?" ? 1500 : 2500);
+            if (juego === "La Bomba" && await page.locator('[data-k="stop"]').isVisible().catch(() => false)) { await page.waitForSelector('[data-k="again"]', { timeout: 45000 }).catch(() => {}); J.explotó++; continue; }
+            const ok = await hacer("jugar " + juego, async () => {
+              for (const sel of PRIO) {
+                const loc = page.locator(`#jg ${sel}:visible, #jg ${sel}`).first();
+                if (!(await loc.isVisible().catch(() => false)) || await loc.isDisabled().catch(() => false)) continue;
+                if (sel === "#jnVer") { const b = await loc.boundingBox(); await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2); await page.mouse.down(); await dormir(700); await page.mouse.up(); return; }
+                if (sel === ".jn-pk") { const n = await page.locator("#jg .jn-pk:visible").count(); await tocar(page.locator("#jg .jn-pk:visible").nth(Math.floor(r() * n))); return; }
+                await tocar(loc); return;
+              }
+              /* ¿Quién soy? sin botones visibles: tocar la mitad derecha (correcto) o izquierda (paso) */
+              const vp = page.viewportSize(); await page.touchscreen.tap(vp.width * (prob(r, 0.6) ? 0.8 : 0.2), vp.height * 0.5);
+            });
+            if (ok) J.pasos++; else break;
+          }
+          if (juego !== "La Bomba") {
+            await espera();
+            await hacer("terminar " + juego, async () => {
+              if (await page.locator('#jg [data-x="fin"]').first().isVisible().catch(() => false)) await tocar('#jg [data-x="fin"]');
+              else await page.evaluate(() => document.querySelector("#jgBack")?.click());   /* «‹ Volver» también muestra el resumen */
+              await visible("#jg .jn-res", 5000);
+            });
+            J.termino = await page.locator("#jg .jn-res").isVisible().catch(() => false);
+            if (J.termino && prob(r, 0.4)) await hacer("mandar al grupo", async () => { await tocar('#jg [data-r="share"]'); R.compartio = true; });
+          } else J.termino = J.explotó > 0;
+          await hacer("volver a los juegos", async () => { if (await page.locator('#jg [data-r="salir"]').isVisible().catch(() => false)) await tocar('#jg [data-r="salir"]'); else await page.evaluate(() => document.querySelector("#jgBack")?.click()); await dormir(500); });
+        }
+        J.ms = Date.now() - t0j; R.juegos.push(J); seccion("quien/" + juego);
+      }
     }
 
     else if (s.perfil === "Rápido") {

@@ -1,26 +1,42 @@
 [
   {
-    "titulo": "Con 100 personas no alcanza para asegurar que 4 de los 5 sorteos sean parejos",
+    "titulo": "Se puede pedir el ticket del shot de regalo sin haber girado la ruleta",
+    "gravedad": "alta",
+    "que": "La ruleta es justa (el regalo salió 99 veces en 10,000 tiros), pero el sorteo se hace en el celular. El servidor entrega un ticket con folio a quien se lo pida, sin comprobar que la ruleta haya caído en el regalo. Alguien que sepa mirar cómo funciona la página puede pedir el ticket directo, sin girar.",
+    "celular": "Todos (es del servidor, no del celular).",
+    "reproducir": "En el servidor de prueba: node regalo-abuso.mjs. Manda la petición de regalo directo, sin girar, y recibe un ticket válido.",
+    "correccion": "Que el servidor decida el resultado del giro (o lo firme) y solo dé el ticket si de verdad salió el regalo. Espera tu aprobación."
+  },
+  {
+    "titulo": "Cualquiera puede marcar un regalo como «entregado» sin el PIN del staff",
+    "gravedad": "alta",
+    "que": "Basta con saber el folio de un ticket para marcarlo como entregado; el servidor no pide el PIN del staff. Un cliente podría marcar el ticket de otro, o el suyo, y confundir al mesero.",
+    "celular": "Todos (es del servidor).",
+    "reproducir": "En el servidor de prueba: pedir un ticket y luego mandar «reclamar» con su folio sin PIN. Responde 200 y queda marcado como entregado (prueba 4 de regalo-abuso.mjs).",
+    "correccion": "Pedir el PIN del staff (ya existe la variable STAFF_PIN) para marcar un ticket como entregado. Espera tu aprobación."
+  },
+  {
+    "titulo": "Borrando los datos del navegador se pueden sacar unos 30 regalos por red",
     "gravedad": "media",
-    "que": "El drink del día sí tuvo datos suficientes y salió parejo (y nunca repitió el mismo drink). Pero la ruleta del Modo Antro, el quiz, la ruleta de «¿A ver qué te toca?» y El Dedo tienen menos de 5 resultados esperados por casilla, así que la prueba no puede concluir. Ninguno mostró sesgo claro (la ruleta del Antro quedó cerca del límite, p = 0.06, con casillas como «Toma el último que levante la mano» saliendo 6 veces contra 2 esperadas), pero con tan pocos datos eso puede ser suerte. También se probaron solo 3 códigos de premio falsos (los 3 se rechazaron bien).",
-    "celular": "No depende del celular.",
-    "reproducir": "Abrir salida/reporte.html, sección «¿Los sorteos son parejos?».",
-    "correccion": "No hay que cambiar la app. Correr 1000 simulaciones (cambiar N_SIMULACIONES a 1000 en pruebas/simular.mjs; tarda unas 2 h 30 min) y, para El Dedo, la prueba enfocada con RONDAS=600 (node dedo.mjs)."
+    "que": "Desde el mismo celular, recargando, el servidor da 1 regalo cada 12 horas (bien). Pero si se borran los datos o se usa modo incógnito, el celular parece nuevo: salieron 28 tickets antes de que la red se bloqueara (tope de 30 por red). En datos móviles la red cambia seguido y el tope se reinicia.",
+    "celular": "Todos.",
+    "reproducir": "node regalo-abuso.mjs (prueba 2: 40 intentos con identificador nuevo cada vez).",
+    "correccion": "Con el primer arreglo esto baja mucho (ya no se puede pedir sin girar). Además: bajar el tope por red, o ligar el regalo a la mesa o a la selfie de entrada en vez de solo al navegador. Espera tu aprobación."
   },
   {
     "titulo": "Cada giro de la ruleta del Modo Antro tarda 6 segundos",
     "gravedad": "baja",
-    "que": "Todo funciona, pero el giro completo dura en promedio 6.0 s (la animación sola es de 5.6 s), contra 3.4 s del drink del día y 2.5 s de «¿A ver qué te toca?». En un antro con ruido y prisa, 6 s se sienten largos, sobre todo cuando se gira varias veces seguidas.",
-    "celular": "Todos (medido en los 5 celulares; 85 giros).",
+    "que": "Todo funciona, pero el giro completo dura en promedio 6.0 s, contra 3.4 s del drink del día y 1.4 s de la ruleta de «¿A ver qué te toca?». En el antro, con ruido y prisa, 6 s se sienten largos, sobre todo al girar varias veces seguidas.",
+    "celular": "Todos (medido en los 5 celulares, 528 giros).",
     "reproducir": "Modo Antro → Tengo 18 → Entrar sin foto → Girar.",
-    "correccion": "Bajar la duración del giro a unos 4 s (en antro.js, la línea «const dur = reduce() ? 700 : 5600» → 4000) o dejar que un segundo toque en la ruleta la detenga y muestre el resultado. Espera tu aprobación."
+    "correccion": "Bajar la animación a unos 4 s (en antro.js, «const dur = reduce() ? 700 : 5600» → 4000) o dejar que un segundo toque la detenga y muestre el resultado. Espera tu aprobación."
   },
   {
-    "titulo": "El Dedo: hay que confirmar en un celular real que la ronda siguiente siempre arranque",
+    "titulo": "En Android chico y Galaxy S8, a veces una ventana queda encima del botón Girar",
     "gravedad": "baja",
-    "que": "En la prueba enfocada de 150 rondas, El Dedo eligió parejo (el último dedo en tocar ganó 20 de 75 veces, lo esperado eran unas 22). Pero, en la simulación, una de cada dos rondas no registró los dedos hasta volver a soltar la pantalla. Lo más probable es que sea por cómo el simulador suelta los dedos (todos de golpe), no por la app; no se puede asegurar sin probarlo en un celular.",
-    "celular": "Simulado en Pixel 7; falta probarlo en un iPhone y un Android reales.",
-    "reproducir": "¿A ver qué te toca? → Elegir juego → El Dedo → poner 3 dedos, esperar a que elija, soltar, y volver a poner 3 dedos enseguida.",
-    "correccion": "Probarlo a mano. Si en un celular real la segunda ronda no arranca, la app debería reiniciar la ronda también cuando el último dedo se suelta (evento de cancelación), no solo con «soltar». Espera tu aprobación."
+    "que": "En 22 giros (de 528), el botón Girar del Modo Antro quedó tapado por una ventana de aviso que seguía abierta (por ejemplo, la del regalo o la de foto). Pasó casi solo en el Android de 360 px (16) y el Galaxy S8 (6). Lo más probable es que el simulador no cerró la ventana como lo haría una persona, pero conviene revisarlo a mano en un celular chico.",
+    "celular": "Android de 360 px y Galaxy S8.",
+    "reproducir": "Modo Antro en un celular de 360 px → girar hasta que salga una casilla de foto o el regalo → sin cerrar la ventana, intentar tocar Girar.",
+    "correccion": "Probarlo a mano. Si pasa, cerrar la ventana anterior al tocar Girar o desactivar Girar mientras haya una ventana abierta. Espera tu aprobación."
   }
 ]

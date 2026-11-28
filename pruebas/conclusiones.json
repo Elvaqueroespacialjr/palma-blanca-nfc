@@ -1,0 +1,7 @@
+[
+  "El shot de regalo salió 99 veces en 10,000 tiros (se esperaban 100): sale 1 de cada 101 giros en promedio. La racha más larga sin regalo fue de 526 tiros y nunca salió más de 2 veces seguidas.",
+  "Todas las ruletas son justas: la del Modo Antro (en modo normal, 15 min después de un shot y «Hoy no tomo»), el drink del día, la ruleta de «¿A ver qué te toca?», El Dedo con 2, 4 y 8 personas y Gira la Botella.",
+  "Lo más usado: Drinks (256 personas), ¿A ver qué te toca? (217) y La Peda (216). Casi todos terminan lo que empiezan: los juegos, La Peda y Blind Date llegan al final en más del 95% de los casos.",
+  "En las 700 sesiones válidas no hubo ni un error de JavaScript, nada se salió de la pantalla y la app cargó en 0.3 s (servidor local). Las 300 sesiones que corrieron con la compu suspendida se excluyeron de fallas y tiempos.",
+  "Lo que hay que arreglar primero es el regalo: el servidor da el ticket sin comprobar que se giró la ruleta y deja marcarlo como entregado sin el PIN del staff."
+]

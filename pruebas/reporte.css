@@ -1,0 +1,24 @@
+:root{--surface-1:#fcfcfb;--surface-2:#f2f1ed;--text-primary:#0b0b0b;--text-secondary:#52514e;--text-muted:#7a7974;--grid:#e3e2dc;--series-1:#2a78d6;--good:#0a7a3e;--bad:#c43b3b;--line:#d8d6cf;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){--surface-1:#1a1a19;--surface-2:#242422;--text-primary:#f0efec;--text-secondary:#c3c2b7;--text-muted:#9a998f;--grid:#333330;--series-1:#3987e5;--good:#3fbf74;--bad:#e66767;--line:#3a3a36;color-scheme:dark}}
+:root[data-theme="dark"]{--surface-1:#1a1a19;--surface-2:#242422;--text-primary:#f0efec;--text-secondary:#c3c2b7;--text-muted:#9a998f;--grid:#333330;--series-1:#3987e5;--good:#3fbf74;--bad:#e66767;--line:#3a3a36;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--surface-1);color:var(--text-primary);font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:980px;margin:0 auto;padding:28px 16px 60px}h1{font-size:28px;margin:0 0 4px}h2{font-size:20px;margin:40px 0 12px;padding-top:12px;border-top:1px solid var(--line)}
+.sub{color:var(--text-secondary);margin:0 0 18px}.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.kpi{background:var(--surface-2);border-radius:12px;padding:12px 14px}.kpi b{display:block;font-size:26px;font-variant-numeric:tabular-nums}.kpi span{color:var(--text-secondary);font-size:13px}
+.hall{display:grid;gap:12px}.hall article{background:var(--surface-2);border-radius:12px;padding:14px 16px;border-left:4px solid var(--text-muted)}
+.hall article.g-alta{border-left-color:var(--bad)}.hall h3{margin:0 0 6px;font-size:16px}.hall dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0}.hall dt{color:var(--text-secondary);font-weight:600}.hall dd{margin:0}
+@media (max-width:560px){.hall dl{grid-template-columns:1fr}.hall dd{margin-bottom:6px}}
+.etq{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px;background:var(--surface-1);margin-left:6px;color:var(--text-secondary)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.graf{margin:0;background:var(--surface-2);border-radius:12px;padding:14px}.graf figcaption{display:grid;gap:2px;margin-bottom:8px}.graf figcaption span{color:var(--text-secondary);font-size:13px}
+.leyenda{display:flex;gap:14px;font-size:12.5px;color:var(--text-secondary);margin-bottom:8px}.leyenda span{display:flex;align-items:center;gap:6px}
+.sw-barra{width:14px;height:8px;border-radius:2px;background:var(--series-1);display:inline-block}.sw-esp{width:2px;height:12px;background:var(--text-primary);display:inline-block}
+.filas{display:grid;gap:4px}.fila{display:grid;grid-template-columns:minmax(90px,38%) 1fr 34px;align-items:center;gap:8px;font-size:13px;border-radius:6px;padding:1px 2px;position:relative}
+.fila:hover,.fila:focus{background:var(--surface-1);outline:none}.et{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text-secondary)}
+.pista{position:relative;height:14px;background:linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/25% 100%}.barra{position:absolute;left:0;top:2px;bottom:2px;background:var(--series-1);border-radius:0 4px 4px 0}
+.esp{position:absolute;top:-2px;bottom:-2px;width:2px;margin-left:-1px;background:var(--text-primary)}.num{text-align:right;font-variant-numeric:tabular-nums}
+.veredicto{margin:10px 0 0;font-weight:600}.veredicto.bien{color:var(--good)}.veredicto.mal{color:var(--bad)}.veredicto.neutro{color:var(--text-secondary)}
+details{margin-top:8px;font-size:13px}summary{cursor:pointer;color:var(--text-secondary)}
+.tabla{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px;margin-top:6px}th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--text-secondary);font-weight:600}
+td{font-variant-numeric:tabular-nums}#tip{position:fixed;pointer-events:none;background:var(--text-primary);color:var(--surface-1);font-size:12.5px;padding:6px 9px;border-radius:6px;max-width:260px;opacity:0;transition:opacity .1s;z-index:5}
+.nota{font-size:13px;color:var(--text-secondary)}code{font-size:12.5px}
